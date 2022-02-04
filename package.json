@@ -1,0 +1,33 @@
+{
+  "name": "cypress-cucumber-autonation",
+  "version": "1.0.0",
+  "description": "Cypress Automation practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilko222/cypress-cucumber-autonation.git"
+  },
+  "keywords": [
+    "Cypress",
+    "Cucumber",
+    "BDD"
+  ],
+  "author": "iklaynchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilko222/cypress-cucumber-autonation/issues"
+  },
+  "homepage": "https://github.com/ilko222/cypress-cucumber-autonation#readme",
+  "devDependencies": {
+    "cypress": "^9.4.1",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  }
+}

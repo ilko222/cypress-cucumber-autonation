@@ -1,0 +1,6 @@
+{
+    "baseUrl": "http://automationpractice.com",
+    "testFiles": "**/*.feature",
+    "viewportWidth": 1920,
+    "viewportHeight": 1080
+}
