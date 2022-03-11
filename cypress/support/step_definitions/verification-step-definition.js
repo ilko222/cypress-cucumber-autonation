@@ -24,5 +24,11 @@ And('I should be presented with navigation bar', () =>{
     MainPage.ShoppingNavigationBar();
 })
 Then('I should be redirected to Contact Us form', function () {
-        MainPage.contactUsFields()
+        MainPage.contactUsFields();
     })
+Then('I should be redirected to Sign in form', () =>{
+    MainPage.signInFunc();
+})
+And('I can see two forms: for Creating a new account and for existing account', () =>{
+    MainPage.signInFunc();
+})

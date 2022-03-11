@@ -28,5 +28,10 @@ Feature: Go to the Main Page And check Top Menu Functionality
     When I click on Contact us form button
     Then I should be redirected to Contact Us form 
 
+    Scenario: 5 Check Sign In functionality
+    When I click on Sign in button 
+    Then I should be redirected to Sign in form
+    And I can see two forms: for Creating a new account and for existing account
+
 
     

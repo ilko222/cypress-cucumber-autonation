@@ -8,6 +8,7 @@ const shoppingCart = 'a[title="View my shopping cart"]'
 const shoppingCartNavigationBar = "#order_step"
 const contactUsButton = 'a[title="Contact Us"]'
 const contactUsForm = '.contact-form-box'
+const signInButton ='a[class="login"]'
 
 class MainPage {
     static sliderCheck() {
@@ -73,5 +74,16 @@ class MainPage {
     static contactUsFields(){
         cy.get(contactUsForm).should('be.visible');
     }
+
+    static signInFunc(){
+        cy.get(signInButton).click();
+        cy.url().should('include', 'my-account')  
+    }
+    static signInForm(){
+        cy.get('#create-account_form').should('be.visible').and('have.value', 'Create an account');
+        cy.get('#login_form').should('have.value', 'Sign in');
+    }
+
+
 }
 export default MainPage

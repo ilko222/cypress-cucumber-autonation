@@ -20,3 +20,6 @@ When('I click on Shopping Cart',() =>{
 When('I click on Contact us form button', () =>{
     MainPage.contactUsFunc();
 })
+When('I click on Sign in button',() =>{
+    MainPage.signInFunc();
+})
