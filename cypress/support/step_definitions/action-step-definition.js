@@ -2,7 +2,7 @@ import {And, Given, Then, When} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 
-Given('I navigate to te Main Page', () => {
+Given('I navigate to the Main Page', () => {
     cy.visit('/');
 })
 
@@ -16,5 +16,7 @@ When('I input {string} into the Top Search field and click Search button', (text
 })
 When('I click on Shopping Cart',() =>{
     MainPage.clickOnShoppingCartButton();
-}
-)
+})
+When('I click on Contact us form button', () =>{
+    MainPage.contactUsFunc();
+})

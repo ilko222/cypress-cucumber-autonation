@@ -23,3 +23,6 @@ Then('I see Shopping-Cart summary with the following message "Your shopping cart
 And('I should be presented with navigation bar', () =>{
     MainPage.ShoppingNavigationBar();
 })
+Then('I should be redirected to Contact Us form', function () {
+        MainPage.contactUsFields()
+    })

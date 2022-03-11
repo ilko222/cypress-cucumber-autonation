@@ -1,7 +1,7 @@
 Feature: Go to the Main Page And check Top Menu Functionality
 
     Background: User navigates to the Main Page
-        Given I navigate to te Main Page
+        Given I navigate to the Main Page
 
     Scenario: 1 Check the main Top Menu
         Then I check the Main Page
@@ -23,5 +23,10 @@ Feature: Go to the Main Page And check Top Menu Functionality
     When I click on Shopping Cart
     Then I see Shopping-Cart summary with the following message "Your shopping cart is empty."
     And I should be presented with navigation bar 
+
+    Scenario: 4 Check Contact Us Functionality
+    When I click on Contact us form button
+    Then I should be redirected to Contact Us form 
+
 
     

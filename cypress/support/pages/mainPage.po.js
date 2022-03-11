@@ -6,6 +6,8 @@ const topLiniarMenuItems = "#block_top_menu > ul > li"
 const searchButton = "[name='submit_search']"
 const shoppingCart = 'a[title="View my shopping cart"]'
 const shoppingCartNavigationBar = "#order_step"
+const contactUsButton = '#contact-link'
+const contactUsForm = '.contact-form-box'
 
 class MainPage {
     static sliderCheck() {
@@ -63,7 +65,13 @@ class MainPage {
         .click({force: true});
         cy.get(shoppingCartNavigationBar).should('be.visible');
     }
+    static contactUsFunc(){
+        cy.get(contactUsButton).click({force: true});
+    
+    }
 
-
+    static contactUsFields(){
+        cy.get(contactUsForm).should('be.visible');
+    }
 }
 export default MainPage
