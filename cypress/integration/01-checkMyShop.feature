@@ -1,7 +1,7 @@
 Feature: Go to the Main Page And check Top Menu Functionality
 
     Background: User navigates to the Main Page
-        Given I navigate to te Main Page
+        Given I navigate to the Main Page
 
     Scenario: 1 Check the main Top Menu
         Then I check the Main Page
@@ -18,4 +18,5 @@ Feature: Go to the Main Page And check Top Menu Functionality
     Scenario: 2 Check the Search Functionality
         When I input "Cotton" into the Top Search field and click Search button
         Then Amout of found results is equal to 3
+
     

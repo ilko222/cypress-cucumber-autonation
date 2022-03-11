@@ -17,3 +17,7 @@ Then('Amout of found results is equal to {int}', (amount) => {
     SearchPage.countProductsOnThePage(amount);
     SearchPage.searchResultTextEqual(amount);
 })
+
+Then('Check the banner', () => {
+    
+})

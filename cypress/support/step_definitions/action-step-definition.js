@@ -2,8 +2,13 @@ import {And, Given, Then, When} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 
-Given('I navigate to te Main Page', () => {
+Given('I navigate to the Main Page', () => {
     cy.visit('/');
+})
+
+Given('I navigate to the Woman Summer Dresses page', () => {
+    cy.visit('/');
+    cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({force:true})
 })
 
 When('I click on Top Menu item with text {string}', (menuItemText) => {
