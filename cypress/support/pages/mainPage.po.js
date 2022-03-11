@@ -6,7 +6,7 @@ const topLiniarMenuItems = "#block_top_menu > ul > li"
 const searchButton = "[name='submit_search']"
 const shoppingCart = 'a[title="View my shopping cart"]'
 const shoppingCartNavigationBar = "#order_step"
-const contactUsButton = '#contact-link'
+const contactUsButton = 'a[title="Contact Us"]'
 const contactUsForm = '.contact-form-box'
 
 class MainPage {
