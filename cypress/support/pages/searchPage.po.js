@@ -10,5 +10,4 @@ class SearchPage {
         cy.contains(`${amount} results have been found.`)
     }
 }
-
 export default SearchPage

@@ -19,3 +19,9 @@ Feature: Go to the Main Page And check Top Menu Functionality
         When I input "Cotton" into the Top Search field and click Search button
         Then Amout of found results is equal to 3
     
+    Scenario: 3 Check the Shopping cart Functionality
+    When I click on Shopping Cart
+    Then I see Shopping-Cart summary with the following message "Your shopping cart is empty."
+    And I should be presented with navigation bar 
+
+    

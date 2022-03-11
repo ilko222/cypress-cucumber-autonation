@@ -1,7 +1,11 @@
+
+
 const sliderRow = "#slider_row"
 const searchInput = "#search_query_top"
 const topLiniarMenuItems = "#block_top_menu > ul > li"
 const searchButton = "[name='submit_search']"
+const shoppingCart = 'a[title="View my shopping cart"]'
+const shoppingCartNavigationBar = "#order_step"
 
 class MainPage {
     static sliderCheck() {
@@ -48,6 +52,18 @@ class MainPage {
         cy.contains(text, {timeout})
             .should('be.visible')
     }
-}
+    static clickOnShoppingCartButton(){
+        cy.get(shoppingCart)
+        .click({force: true});
+        cy.get('[class="alert alert-warning"]')
+        .should('be.visible')
+    }
+    static ShoppingNavigationBar(){
+        cy.get(shoppingCart)
+        .click({force: true});
+        cy.get(shoppingCartNavigationBar).should('be.visible');
+    }
 
+
+}
 export default MainPage

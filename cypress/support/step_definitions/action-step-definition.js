@@ -14,3 +14,7 @@ When('I input {string} into the Top Search field and click Search button', (text
     MainPage.typeInTopSearchInputField(text);
     MainPage.clickOnTopSearchButton();
 })
+When('I click on Shopping Cart',() =>{
+    MainPage.clickOnShoppingCartButton();
+}
+)

@@ -1,4 +1,4 @@
-import {Then} from 'cypress-cucumber-preprocessor/steps'
+import {Then, And} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 
@@ -16,4 +16,10 @@ Then(/I check the Top Menu item with text "(.*)" is( not)? highlighted$/, (menuI
 Then('Amout of found results is equal to {int}', (amount) => {
     SearchPage.countProductsOnThePage(amount);
     SearchPage.searchResultTextEqual(amount);
+})
+Then('I see Shopping-Cart summary with the following message "Your shopping cart is empty."',() =>{
+    MainPage.clickOnShoppingCartButton();
+} )
+And('I should be presented with navigation bar', () =>{
+    MainPage.ShoppingNavigationBar();
 })
