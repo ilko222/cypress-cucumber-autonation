@@ -1,6 +1,7 @@
 import {Then} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
+import SummerDresses from '../pages/summerDresses.po'
 
 Then('I check the Main Page', () => {
     cy.url()
@@ -19,5 +20,5 @@ Then('Amout of found results is equal to {int}', (amount) => {
 })
 
 Then('Check the banner', () => {
-    
+    SummerDresses.bannerCheck();
 })

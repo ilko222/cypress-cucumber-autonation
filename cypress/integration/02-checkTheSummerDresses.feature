@@ -4,3 +4,4 @@ Feature: Go to the Summer Dresses Page and check the layout
         Given I navigate to the Woman Summer Dresses page
 
     Scenario: 1 Check the Summer Dresses page layout
+        Then Check the banner
