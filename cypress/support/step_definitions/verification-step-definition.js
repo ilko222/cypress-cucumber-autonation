@@ -32,3 +32,6 @@ Then('I should be redirected to Sign in form', () =>{
 And('I can see two forms: for Creating a new account and for existing account', () =>{
     MainPage.signInFunc();
 })
+Then('I should be shown 14 available items in both of these categories',() =>{
+    MainPage.itemsOnMainPage();
+})

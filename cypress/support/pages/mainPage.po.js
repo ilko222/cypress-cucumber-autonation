@@ -83,7 +83,11 @@ class MainPage {
         cy.get('#create-account_form').should('be.visible').and('have.value', 'Create an account');
         cy.get('#login_form').should('have.value', 'Sign in');
     }
+    static itemsOnMainPage(){
+        cy.get('.product-container').as('productsOnMainPage')
+        cy.get('@productsOnMainPage').should('have.length', 14)  //.and('have.class', 'product-image-container');
 
+    }
 
 }
 export default MainPage

@@ -23,3 +23,6 @@ When('I click on Contact us form button', () =>{
 When('I click on Sign in button',() =>{
     MainPage.signInFunc();
 })
+When('I click on "Popular" section and "Best Sellers"',()=>{
+    MainPage.itemsOnMainPage();
+})

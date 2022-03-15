@@ -33,5 +33,8 @@ Feature: Go to the Main Page And check Top Menu Functionality
     Then I should be redirected to Sign in form
     And I can see two forms: for Creating a new account and for existing account
 
-
+    Scenario: 6 Check quantity of the items on main page
+    When I click on "Popular" section and "Best Sellers"
+    Then I should be shown 14 available items in both of these categories
+   
     
