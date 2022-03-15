@@ -22,3 +22,7 @@ Then('Amout of found results is equal to {int}', (amount) => {
 Then('Check the banner', () => {
     SummerDresses.bannerCheck();
 })
+
+Then('Verify sorting functionality', () => {
+    SummerDresses.sortingCheck();
+})
