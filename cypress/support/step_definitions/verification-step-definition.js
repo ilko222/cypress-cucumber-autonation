@@ -19,14 +19,22 @@ Then('Amout of found results is equal to {int}', (amount) => {
     SearchPage.searchResultTextEqual(amount);
 })
 
-Then('Check the banner', () => {
-    SummerDresses.bannerCheck();
-})
-
 Then('Verify sorting functionality', () => {
     SummerDresses.sortingCheck();
 })
 
 Then('Verify Add To Wishlist functionality user logged out', () => {
    SummerDresses.addToWishlistLoggedOutCheck();
+})
+
+Then('Check the banner', () => {
+    SummerDresses.bannerCheck();
+})
+
+Then('Check the header', () => {
+    SummerDresses.headerCheck();
+})
+
+Then('Check the navigation bar', () => {
+    SummerDresses.navBarCheck();
 })
