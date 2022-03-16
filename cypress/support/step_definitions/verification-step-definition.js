@@ -26,3 +26,7 @@ Then('Check the banner', () => {
 Then('Verify sorting functionality', () => {
     SummerDresses.sortingCheck();
 })
+
+Then('Verify Add To Wishlist functionality user logged out', () => {
+   SummerDresses.addToWishlistLoggedOutCheck();
+})

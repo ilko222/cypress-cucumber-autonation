@@ -1,5 +1,8 @@
 const banner = ".rte";
-const selector = '.selector'
+const selector = '.selector';
+const product = '.replace-2x';
+const wishList = '#wishlist_button';
+const errorBox = '.fancybox-outer';
 
 class SummerDresses {
     static bannerCheck () {
@@ -14,7 +17,12 @@ class SummerDresses {
             cy.log('index ' + index + ' : ' + $el.text())
             cy.get($el).should('contain', 'In stock')
           })
-          
+    }
+
+    static addToWishlistLoggedOutCheck () {
+        cy.get(product).eq(0).click({force: true});
+        cy.get(wishList).click({force:true});
+        cy.get(errorBox).should('contain', 'You must be logged in to manage your wishlist.');   
     }
 }
 
