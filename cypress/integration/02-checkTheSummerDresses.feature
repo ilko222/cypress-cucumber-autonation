@@ -9,7 +9,12 @@ Feature: Go to the Summer Dresses Page and check the layout
         Then Check the navigation bar
 
     Scenario: 2 Check the sorting functionality
-        Then Verify sorting functionality
+        When I select in stock option in the sorter dropdown
+        Then In stock items are visible
+        When I set price slider in minimal price
+        Then There are no products message is visible
+        When I set specific color in the filter section
+        Then Items with specific colour are visible
 
     Scenario: 3 Check the Add To Wishlist functionality
          Then Verify Add To Wishlist functionality user logged out

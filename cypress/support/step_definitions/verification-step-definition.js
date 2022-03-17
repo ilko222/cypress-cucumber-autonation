@@ -19,8 +19,8 @@ Then('Amout of found results is equal to {int}', (amount) => {
     SearchPage.searchResultTextEqual(amount);
 })
 
-Then('Verify sorting functionality', () => {
-    SummerDresses.sortingCheck();
+Then('In stock items are visible', () => {
+    SummerDresses.checkInStockSortingDropdownOption();
 })
 
 Then('Verify Add To Wishlist functionality user logged out', () => {
@@ -37,4 +37,12 @@ Then('Check the header', () => {
 
 Then('Check the navigation bar', () => {
     SummerDresses.navBarCheck();
+})
+
+Then('There are no products message is visible', () => {
+    SummerDresses.checkPriceSliderMinPrice();
+})
+
+Then('Items with specific colour are visible', () => {
+    SummerDresses.checkColorSorter();;
 })
