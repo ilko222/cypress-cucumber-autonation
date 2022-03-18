@@ -9,12 +9,12 @@ const header = '.cat-name';
 const navBar = '.breadcrumb';
 const priceSlider = '.ui-slider-handle';
 const colorOptions = '.color-option';
+const accountButton = '.account';
 
 class SummerDresses {
     static bannerCheck() {
         cy.get(banner).should('contain', 'Short dress, long dress, silk dress, printed dress, you will find the perfect dress for summer.')
     };
-
     static headerCheck() {
         cy.get(header).should('contain', 'Summer Dresses');
     };
@@ -32,10 +32,24 @@ class SummerDresses {
         cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })
     }
 
-    static addToWishlistLoggedOutCheck() {
+    static addToWishlistCheck(string) {
         cy.get(product).eq(0).click({ force: true });
         cy.get(wishList).click({ force: true });
-        cy.get(errorBox).should('contain', 'You must be logged in to manage your wishlist.');
+        cy.get(errorBox).should('contain', string);
+    }
+    static logIn() {
+        // cy.fixture('example.json').then(function(data){
+        //     globalThis.data = data
+        // });
+        cy.get('.login').click({ force: true });
+        cy.get('#email').type('asd1234@mail.com');
+        cy.get('#passwd').type('Password1234');
+        cy.get('.icon-lock').click();
+    }
+    static wishlistCheck() {
+        cy.get(accountButton).click({ force: true });
+        cy.get('.icon-heart').click({ force: true });
+        cy.get('.table-bordered').should('be.visible');
     }
 
     static navBarCheck() {
@@ -64,6 +78,7 @@ class SummerDresses {
         cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true }) 
         //how to iterate through the elements to find specific attribute value?         
     }
+
 }
 
 export default SummerDresses

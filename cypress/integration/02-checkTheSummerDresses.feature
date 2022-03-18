@@ -17,4 +17,9 @@ Feature: Go to the Summer Dresses Page and check the layout
         Then Items with specific colour are visible
 
     Scenario: 3 Check the Add To Wishlist functionality
-         Then Verify Add To Wishlist functionality user logged out
+         Then I verify Add To Wishlist functionality user logged out
+         When The user is logged in
+         When I navigate to the Woman Summer Dresses page
+         Then I verify Add To Wishlist functionality user logged in
+         When I navigate to the Woman Summer Dresses page
+         Then I check the Wishlist

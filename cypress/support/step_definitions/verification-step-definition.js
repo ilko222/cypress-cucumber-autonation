@@ -23,9 +23,16 @@ Then('In stock items are visible', () => {
     SummerDresses.checkInStockSortingDropdownOption();
 })
 
-Then('Verify Add To Wishlist functionality user logged out', () => {
-   SummerDresses.addToWishlistLoggedOutCheck();
+Then('I verify Add To Wishlist functionality user logged out', () => {
+   SummerDresses.addToWishlistCheck('You must be logged in to manage your wishlist.');
 })
+
+Then('I verify Add To Wishlist functionality user logged in', () => {
+    SummerDresses.addToWishlistCheck('Added to your wishlist.');
+ })
+ Then('I check the Wishlist', () => {
+    SummerDresses.wishlistCheck();
+ })
 
 Then('Check the banner', () => {
     SummerDresses.bannerCheck();
@@ -46,3 +53,4 @@ Then('There are no products message is visible', () => {
 Then('Items with specific colour are visible', () => {
     SummerDresses.checkColorSorter();;
 })
+

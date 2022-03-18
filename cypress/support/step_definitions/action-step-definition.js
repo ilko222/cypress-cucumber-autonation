@@ -32,3 +32,12 @@ When('I set price slider in minimal price', () => {
 When('I set specific color in the filter section', () => {
     SummerDresses.setColorSorter();
 })
+
+When('The user is logged in', () => {
+    SummerDresses.logIn();
+})
+
+When('I navigate to the Woman Summer Dresses page', () => {
+    cy.visit('/');
+    cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({force:true})
+})
