@@ -39,3 +39,6 @@ Then('I should be shown 14 available items in both of these categories',() =>{
 Then('I should be shown subcategory Summer Dresses with 3 available items and correct url', () =>{
     DressesSummer.categorySummerDresses();
 })
+Then('I should be redirected to the product page', ()=>{
+    DressesSummer.prodFunc();
+})

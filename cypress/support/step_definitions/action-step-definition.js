@@ -36,3 +36,10 @@ When('I redirect to Dresses category, subcategory Summer Dresses', ()=>{
   DressesSummer.categoryDresses();
 })
 
+Given('I navigate to the category Dresses, subcategory Summer Dresses', () =>{
+    cy.visit('/');
+    DressesSummer.categoryDresses();
+})
+When('I navigate to the first item and click "More"',()=>{
+    DressesSummer.viewMoreFunc();
+})
