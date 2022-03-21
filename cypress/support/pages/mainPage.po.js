@@ -1,5 +1,3 @@
-
-
 const sliderRow = "#slider_row"
 const searchInput = "#search_query_top"
 const topLiniarMenuItems = "#block_top_menu > ul > li"
@@ -88,6 +86,5 @@ class MainPage {
         cy.get('@productsOnMainPage').should('have.length', 14)  //.and('have.class', 'product-image-container');
 
     }
-
 }
 export default MainPage

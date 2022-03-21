@@ -1,6 +1,7 @@
 import {Then, And} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
+import DressesSummer from '../pages/dressesSummer.po'
 
 Then('I check the Main Page', () => {
     cy.url()
@@ -34,4 +35,7 @@ And('I can see two forms: for Creating a new account and for existing account', 
 })
 Then('I should be shown 14 available items in both of these categories',() =>{
     MainPage.itemsOnMainPage();
+})
+Then('I should be shown subcategory Summer Dresses with 3 available items and correct url', () =>{
+    DressesSummer.categorySummerDresses();
 })
