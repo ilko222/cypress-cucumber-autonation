@@ -1,3 +1,4 @@
+import { expect } from "chai";
 import { should } from "chai";
 
 const banner = ".rte";
@@ -10,14 +11,44 @@ const navBar = '.breadcrumb';
 const priceSlider = '.ui-slider-handle';
 const colorOptions = '.color-option';
 const accountButton = '.account';
+const logo = '.logo';
+const menu = '.sf-menu > li';
 
 class SummerDresses {
+    //scenario 1
     static bannerCheck() {
         cy.get(banner).should('contain', 'Short dress, long dress, silk dress, printed dress, you will find the perfect dress for summer.')
+        cy.get("[width='1170']").eq(0).should('be.visible')
     };
     static headerCheck() {
         cy.get(header).should('contain', 'Summer Dresses');
     };
+    static navBarCheck() {
+        cy.get(navBar).should('contain', 'Summer Dresses');
+    }
+    static logoCheck() {
+        cy.get(logo).should('be.visible');
+    }
+    static phoneCallCheck() {
+        cy.get('.icon-phone').should('be.visible');
+        cy.get('.shop-phone strong').should('contain', '0123-456-789');
+    }
+
+    static checkMenu(text) {
+        cy.get(menu).should('be.visible');
+        cy.get(menu).eq(0).should('contain', 'Women');
+        //cy.get(menu).eq(1).should('have.attribute', 'title', 'Dresses');      //should work but it doesn'
+        expect(menu).to.have.lengthOf(13);                                      //Why 13 if it returns 3 elements?
+    }
+
+    static checkLeftColumn() {
+        cy.get('#left_column').should('have.class', 'column')
+    }
+
+    static checkFooter() {
+        cy.get('#footer').should('have.class', 'container').and('be.visible')
+    }
+    //end of scenario 1
 
     static setInStockSortingDropdownOption() {
         cy.get(sorterDropDown).click();
@@ -38,9 +69,6 @@ class SummerDresses {
         cy.get(errorBox).should('contain', string);
     }
     static logIn() {
-        // cy.fixture('example.json').then(function(data){
-        //     globalThis.data = data
-        // });
         cy.get('.login').click({ force: true });
         cy.get('#email').type('asd1234@mail.com');
         cy.get('#passwd').type('Password1234');
@@ -50,10 +78,6 @@ class SummerDresses {
         cy.get(accountButton).click({ force: true });
         cy.get('.icon-heart').click({ force: true });
         cy.get('.table-bordered').should('be.visible');
-    }
-
-    static navBarCheck() {
-        cy.get(navBar).should('contain', 'Summer Dresses');
     }
 
     static setPriceSliderMinPrice() {
