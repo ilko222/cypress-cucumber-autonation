@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "chai": "^4.3.6",
     "cypress-xpath": "^1.6.2"
   }
 }

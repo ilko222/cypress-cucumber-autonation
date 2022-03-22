@@ -13,6 +13,8 @@ const colorOptions = '.color-option';
 const accountButton = '.account';
 const logo = '.logo';
 const menu = '.sf-menu > li';
+const cart = '.shopping_cart';
+const newsLetterBlockLeft = '#newsletter_block_left';
 
 class SummerDresses {
     //scenario 1
@@ -29,25 +31,45 @@ class SummerDresses {
     static logoCheck() {
         cy.get(logo).should('be.visible');
     }
+    static cartCheck() {
+        cy.get(cart).should('be.visible');
+        cy.get(cart).should('contain', 'Cart')
+    }
     static phoneCallCheck() {
         cy.get('.icon-phone').should('be.visible');
         cy.get('.shop-phone strong').should('contain', '0123-456-789');
     }
-
-    static checkMenu(text) {
+    static checkMenu() {
         cy.get(menu).should('be.visible');
         cy.get(menu).eq(0).should('contain', 'Women');
-        //cy.get(menu).eq(1).should('have.attribute', 'title', 'Dresses');      //should work but it doesn'
-        expect(menu).to.have.lengthOf(13);                                      //Why 13 if it returns 3 elements?
+        //cy.get(menu).should('have.attr', 'title').and('equal', 'Dresses');      //should work but it doesn'
+        expect(menu).to.have.lengthOf(13);                                        //Why 13 if it returns 3 elements?
     }
 
     static checkLeftColumn() {
         cy.get('#left_column').should('have.class', 'column')
     }
 
-    static checkFooter() {
-        cy.get('#footer').should('have.class', 'container').and('be.visible')
+    static checkCenterColumn() {
+        cy.get('#center_column').should('have.class', 'center_column');
+        cy.get('#center_column').should('be.visible');
+        expect('#center_column').to.have.length(14)                                 //Why 14 if it has 5 elements?
     }
+
+    static checkNewsLetterBlockLeft() {
+        cy.get(newsLetterBlockLeft).should('have.class', 'block').and('be.visible').and('contain', 'Newsletter');
+    }
+
+    static checkFooter() {
+        cy.get('#footer').should('have.class', 'container').and('be.visible').and('contain', 'Newsletter');
+        cy.get('.toggle-footer');
+        expect('.toggle-footer').to.have.length(14);                                //Why 14????
+    }
+
+    static checkBottomFooter() {
+        cy.get('.bottom-footer').should('contain', 'Ecommerce software by PrestaShop™').and('contain', '© 2014');
+    }
+    
     //end of scenario 1
 
     static setInStockSortingDropdownOption() {

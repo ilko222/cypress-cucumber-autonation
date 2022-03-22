@@ -21,6 +21,7 @@ When('I input {string} into the Top Search field and click Search button', (text
     MainPage.clickOnTopSearchButton();
 })
 
+//scenario 2
 When('I select in stock option in the sorter dropdown', () => {
     SummerDresses.setInStockSortingDropdownOption();
 })
@@ -32,12 +33,13 @@ When('I set price slider in minimal price', () => {
 When('I set specific color in the filter section', () => {
     SummerDresses.setColorSorter();
 })
+//end of scenario 2
+
+//scenario 3
 
 When('The user is logged in', () => {
     SummerDresses.logIn();
 })
 
-When('I navigate to the Woman Summer Dresses page', () => {
-    cy.visit('/');
-    cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({force:true})
-})
+//end of scenario 3
+
