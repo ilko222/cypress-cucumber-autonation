@@ -75,15 +75,36 @@ Then('Check the bottom footer', () => {
 Then('In stock items are visible', () => {
     SummerDresses.checkInStockSortingDropdownOption();
 })
-
 Then('There are no products message is visible', () => {
     SummerDresses.checkPriceSliderMinPrice();
 })
-
 Then('Items with specific colour are visible', () => {
     SummerDresses.checkColorSorter();;
 })
-
+Then('Items with polyester composition are visible', () => {
+    SummerDresses.checkCompositionSorterPolyester();;
+})
+Then('Items with viscose composition are visible', () => {
+    SummerDresses.checkCompositionSorterViscose();;
+})
+Then('Items with casual style are visible', () => {
+    SummerDresses.checkStyleSorterCasual();
+})
+Then('Items with girly style are visible', () => {
+    SummerDresses.checkStyleSorterGirly();
+})
+Then('Items with short dresses property are visible', () => {
+    SummerDresses.checkPropertySorterShortDress();
+})
+Then('Items with in stock availability are visible', () => {
+    SummerDresses.checkAvailabilitySorterInStock();
+})
+Then('I go to our stores page', () => {
+    SummerDresses.checkOurStoresPageUrl();
+})
+Then('I go to specials page', () => {
+    SummerDresses.checkSpecialsPage();
+})
 //end of scenario 2
 
 //scenario 3

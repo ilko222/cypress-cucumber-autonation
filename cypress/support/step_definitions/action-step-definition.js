@@ -33,6 +33,30 @@ When('I set price slider in minimal price', () => {
 When('I set specific color in the filter section', () => {
     SummerDresses.setColorSorter();
 })
+When('I set polyester compositions in the filter section', () => {
+    SummerDresses.setCompositionSorterPolyester();
+})
+When('I set viscose compositions in the filter section', () => {
+    SummerDresses.setCompositionSorterViscose();
+})
+When('I set casual style in the filter section', () => {
+    SummerDresses.setStyleSorterCasual();
+})
+When('I set girly style in the filter section', () => {
+    SummerDresses.setStyleSorterGirly();
+})
+When('I set short dress in properties in the filter section', () => {
+    SummerDresses.setPropertySorterShortDress();
+})
+When('I set in stock in availability in the filter section', () => {
+    SummerDresses.setAvailabilitySorterInStock();
+})
+When('I click on our stores in the information section', () => {
+    SummerDresses.goToOurStoresPage();
+})
+When('I click on all specials in the specials section', () => {
+    SummerDresses.goToSpecialsPage();
+})
 //end of scenario 2
 
 //scenario 3

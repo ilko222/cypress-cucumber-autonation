@@ -72,6 +72,7 @@ class SummerDresses {
     
     //end of scenario 1
 
+    //scenario 2
     static setInStockSortingDropdownOption() {
         cy.get(sorterDropDown).click();
         cy.get('.selectProductSort').select('In stock');
@@ -84,6 +85,92 @@ class SummerDresses {
         cy.visit('/');
         cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })
     }
+    static setPriceSliderMinPrice() {
+        cy.get(priceSlider).eq(1).trigger('mousedown', { which: 1 })
+        cy.get(priceSlider).eq(0).trigger('mousemove').trigger('mouseup', { force: true });
+        //how to create positive case to compare the slider price & the product price?
+    }
+    static checkPriceSliderMinPrice() {
+        cy.get('.product_list').should('contain', 'There are no products.')
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })
+        //how to create positive case to compare the slider price & the product price?
+    }
+    static setColorSorter() {
+        cy.get('#layered_id_attribute_group_11').click();
+        //how to iterate through the elements to find specific attribute value?        
+    }
+    static checkColorSorter() {
+        cy.get('#color_22').should('have.attr', 'style', 'background:#434A54;'); 
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true }) 
+        //how to iterate through the elements to find specific attribute value?         
+    }
+    static setCompositionSorterPolyester() {
+        cy.get('#layered_id_feature_1').click();       
+    }
+    static checkCompositionSorterPolyester() {
+        cy.get('.product_img_link').should('have.length', 2);
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+    }
+    static setCompositionSorterViscose() {
+        cy.get('#layered_id_feature_3').click();       
+    }
+    static checkCompositionSorterViscose() {
+        cy.get('.product_img_link').should('have.length', 1);
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+    }
+    static setStyleSorterCasual() {
+        cy.get('#layered_id_feature_11').click();       
+    }
+    static checkStyleSorterCasual() {
+        cy.get('.product_img_link').should('have.length', 1);
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+    }
+    static setStyleSorterGirly() {
+        cy.get('#layered_id_feature_13').click();       
+    }
+    static checkStyleSorterGirly() {
+        cy.get('.product_img_link').should('have.length', 2);
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+    }
+    static setPropertySorterShortDress() {
+        cy.get('#layered_id_feature_19').click();       
+    }
+    static checkPropertySorterShortDress() {
+        cy.get('.product_img_link').should('have.length', 1);
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+    }
+    static setAvailabilitySorterInStock() {
+        cy.get('#layered_quantity_1').click();       
+    }
+    static checkAvailabilitySorterInStock() {
+        cy.get('.product_img_link').should('have.length', 3);
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+    }
+    static goToOurStoresPage() {
+        cy.get('.block_content').contains('Our stores').click();       
+    }
+    static checkOurStoresPageUrl() {
+        cy.url().should('contain', 'stores');
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+    }
+    static goToSpecialsPage() {
+        cy.get('.btn').contains('All specials').click();       
+    }
+    static checkSpecialsPage() {
+        cy.url().should('contain', 'prices-drop');
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+    }
+    //end of scenario 2
 
     static addToWishlistCheck(string) {
         cy.get(product).eq(0).click({ force: true });
@@ -102,28 +189,11 @@ class SummerDresses {
         cy.get('.table-bordered').should('be.visible');
     }
 
-    static setPriceSliderMinPrice() {
-        cy.get(priceSlider).eq(1).trigger('mousedown', { which: 1 })
-        cy.get(priceSlider).eq(0).trigger('mousemove').trigger('mouseup', { force: true });
-        //how to create positive case to compare the slider price & the product price?
-    }
-    static checkPriceSliderMinPrice() {
-        cy.get('.product_list').should('contain', 'There are no products.')
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })
-        //how to create positive case to compare the slider price & the product price?
-    }
+    
+   
 
-    static setColorSorter() {
-        cy.get('#layered_id_attribute_group_11').click();
-        //how to iterate through the elements to find specific attribute value?        
-    }
-    static checkColorSorter() {
-        cy.get('#color_22').should('have.attr', 'style', 'background:#434A54;'); 
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true }) 
-        //how to iterate through the elements to find specific attribute value?         
-    }
+    
+    
 
 }
 
