@@ -42,3 +42,12 @@ Then('I should be shown subcategory Summer Dresses with 3 available items and co
 Then('I should be redirected to the product page', ()=>{
     DressesSummer.prodFunc();
 })
+Then('I should see the the picture of the item',()=>{
+    DressesSummer.prodPicture();
+})
+Then('I can see the picture of the product',()=>{
+    DressesSummer.pictureViewBigger();
+})
+Then('They are clickable', ()=>{
+    DressesSummer.picturesMini();
+})

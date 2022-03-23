@@ -43,3 +43,12 @@ Given('I navigate to the category Dresses, subcategory Summer Dresses', () =>{
 When('I navigate to the first item and click "More"',()=>{
     DressesSummer.viewMoreFunc();
 })
+When('I click on More button', () =>{
+    DressesSummer.viewMoreFunc();
+})
+When('I click View larger', ()=>{
+    DressesSummer.pictureViewBigger();
+})
+When('I click on mini images', ()=>{
+    DressesSummer.picturesMini();
+})

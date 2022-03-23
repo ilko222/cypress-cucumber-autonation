@@ -5,4 +5,14 @@ Feature: Check functionality 'More' on subcategory Summer Dresses
 
         Scenario: 1 Check View More functionality 
         When I navigate to the first item and click "More"
-        Then I should be redirected to the product page 
+        Then I should be redirected to the product page
+
+        Scenario: 2 Check product page functionality on subcategory Summer Dresses
+        When I click on More button
+        Then I should see the the picture of the item
+        When I click View larger 
+        Then I can see the picture of the product 
+        When I click on mini images
+        Then They are clickable
+
+    

@@ -1,4 +1,6 @@
-
+const pictureItem = '#view_full_size'
+const viewBigger = 'span[class="span_link no-print"]'
+const fullPicture = '.fancybox-skin'
 
 class DressesSummer {
     static categoryDresses(){
@@ -14,6 +16,17 @@ class DressesSummer {
     }
     static prodFunc(){
         cy.get("h1[itemprop='name']").should('have.text', 'Printed Summer Dress');
+    }
+    static prodPicture(){
+        cy.get(pictureItem).should('be.visible');
+    }
+    static pictureViewBigger(){
+        cy.get(viewBigger).should('have.text', 'View larger').click({force: true});
+        cy.get(fullPicture).should('be.visible'); 
+        cy.get('a[title="Close"]').click();
+    }
+    static picturesMini(){
+        cy.get('#views_block').should('be.visible')
     }
 }
 export default DressesSummer
