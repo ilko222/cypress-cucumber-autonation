@@ -47,4 +47,6 @@ Feature: Go to the Summer Dresses Page and check the layout
          When I navigate to the Woman Summer Dresses page
          Then I verify Add To Wishlist functionality user logged in
          When I navigate to the Woman Summer Dresses page
+         Then I check the Wishlist page
+         Then I edit the Wishlist
          Then I check the Wishlist

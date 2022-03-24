@@ -172,6 +172,7 @@ class SummerDresses {
     }
     //end of scenario 2
 
+    //scenario 3
     static addToWishlistCheck(string) {
         cy.get(product).eq(0).click({ force: true });
         cy.get(wishList).click({ force: true });
@@ -183,18 +184,24 @@ class SummerDresses {
         cy.get('#passwd').type('Password1234');
         cy.get('.icon-lock').click();
     }
-    static wishlistCheck() {
+    static wishlistPageCheck() {
         cy.get(accountButton).click({ force: true });
         cy.get('.icon-heart').click({ force: true });
         cy.get('.table-bordered').should('be.visible');
     }
+    static editWishlist() {
+        cy.get('tbody tr td a').contains('My wishlist').click();
+        cy.get('.wishlist_product_detail .form-group').eq(0).clear().type('10');
+        cy.get('#priority_5_19').select('High');
+        cy.get('.btn_action').contains('Save').click();
+    }
+    static wishlistCheck() {
+        cy.get('tbody tr td').eq(1).should('contain', '10');
+        cy.get('.icon-remove').click({multiple: true});
+        cy.get('.table-bordered').should('have.length', '0');
+    }
 
-    
-   
-
-    
-    
-
+    //end of scenario 3
 }
 
 export default SummerDresses

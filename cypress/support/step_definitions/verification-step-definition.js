@@ -115,6 +115,12 @@ Then('I verify Add To Wishlist functionality user logged out', () => {
 Then('I verify Add To Wishlist functionality user logged in', () => {
     SummerDresses.addToWishlistCheck('Added to your wishlist.');
  })
+ Then('I check the Wishlist page', () => {
+    SummerDresses.wishlistPageCheck();
+ })
+ Then('I edit the Wishlist', () => {
+    SummerDresses.editWishlist();
+ })
  Then('I check the Wishlist', () => {
     SummerDresses.wishlistCheck();
  })
