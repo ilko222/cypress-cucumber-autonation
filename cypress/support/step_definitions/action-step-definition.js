@@ -52,3 +52,9 @@ When('I click View larger', ()=>{
 When('I click on mini images', ()=>{
     DressesSummer.picturesMini();
 })
+When('I on category page and click on the item', () =>{
+    DressesSummer.viewMoreFunc();
+})
+When('I click on the button Add to Cart', ()=>{
+    DressesSummer.addToCart();
+})

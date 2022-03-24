@@ -54,3 +54,12 @@ Then('They are clickable', ()=>{
 Then('I should be able to see the price of the product, change quantity, choose color and change size', ()=>{
     DressesSummer.productInfoPart();
 })
+Then('I should be able to see the the form Add to Cart',()=>{
+    DressesSummer.addToCart();
+})
+Then('I should be shown successful message',()=>{
+    DressesSummer.successForm();
+})
+And('I should see two available buttons Countinue Shopping and Proceed to Checkout',()=>{
+    DressesSummer.successForm();
+})
