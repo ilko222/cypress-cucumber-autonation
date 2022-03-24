@@ -51,3 +51,6 @@ Then('I can see the picture of the product',()=>{
 Then('They are clickable', ()=>{
     DressesSummer.picturesMini();
 })
+Then('I should be able to see the price of the product, change quantity, choose color and change size', ()=>{
+    DressesSummer.productInfoPart();
+})

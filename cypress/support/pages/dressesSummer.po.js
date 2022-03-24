@@ -28,5 +28,15 @@ class DressesSummer {
     static picturesMini(){
         cy.get('#views_block').should('be.visible')
     }
+    static productInfoPart(){
+        cy.get("div>p>span[id='our_price_display']").should('be.visible');
+        cy.get('.icon-plus').click();
+        cy.get('#quantity_wanted').should('have.value', '2');
+        cy.get('#group_1').select('2').contains('M');
+        cy.get('#group_1').select('3').should('have.value', '3');
+        cy.get('#color_11').click().should('not.be.disabled');
+
+    }
+
 }
 export default DressesSummer
