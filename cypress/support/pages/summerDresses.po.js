@@ -9,7 +9,6 @@ const errorBox = '.fancybox-outer';
 const header = '.cat-name';
 const navBar = '.breadcrumb';
 const priceSlider = '.ui-slider-handle';
-const colorOptions = '.color-option';
 const accountButton = '.account';
 const logo = '.logo';
 const menu = '.sf-menu > li';
@@ -42,8 +41,8 @@ class SummerDresses {
     static checkMenu() {
         cy.get(menu).should('be.visible');
         cy.get(menu).eq(0).should('contain', 'Women');
-        //cy.get(menu).should('have.attr', 'title').and('equal', 'Dresses');      //should work but it doesn'
-        expect(menu).to.have.lengthOf(13);                                        //Why 13 if it returns 3 elements?
+       // cy.get(menu).eq(1).should('have.class', 'sf-with-ul');      //should work but it doesn't
+        cy.get(menu).should('have.length', 3);                                      
     }
 
     static checkLeftColumn() {
@@ -53,7 +52,7 @@ class SummerDresses {
     static checkCenterColumn() {
         cy.get('#center_column').should('have.class', 'center_column');
         cy.get('#center_column').should('be.visible');
-        expect('#center_column').to.have.length(14)                                 //Why 14 if it has 5 elements?
+        cy.get('#center_column .ajax_block_product').should('have.length', 3);                                 
     }
 
     static checkNewsLetterBlockLeft() {
@@ -63,7 +62,7 @@ class SummerDresses {
     static checkFooter() {
         cy.get('#footer').should('have.class', 'container').and('be.visible').and('contain', 'Newsletter');
         cy.get('.toggle-footer');
-        expect('.toggle-footer').to.have.length(14);                                //Why 14????
+        cy.get('.toggle-footer').should('have.length', 4);                               
     }
 
     static checkBottomFooter() {
@@ -97,14 +96,12 @@ class SummerDresses {
         //how to create positive case to compare the slider price & the product price?
     }
     static setColorSorter() {
-        cy.get('#layered_id_attribute_group_11').click();
-        //how to iterate through the elements to find specific attribute value?        
+        cy.get('#ul_layered_id_attribute_group_3 li').contains('Black').click();        
     }
     static checkColorSorter() {
-        cy.get('#color_22').should('have.attr', 'style', 'background:#434A54;'); 
+        cy.get(".color_to_pick_list").as('color').should('have.length', 3); 
         cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true }) 
-        //how to iterate through the elements to find specific attribute value?         
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })          
     }
     static setCompositionSorterPolyester() {
         cy.get('#layered_id_feature_1').click();       
@@ -142,7 +139,7 @@ class SummerDresses {
         cy.get('#layered_id_feature_19').click();       
     }
     static checkPropertySorterShortDress() {
-        cy.get('.product_img_link').should('have.length', 1);
+        cy.get('.product_img_link').should('have.length', 3);
         cy.visit('/');
         cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
     }
