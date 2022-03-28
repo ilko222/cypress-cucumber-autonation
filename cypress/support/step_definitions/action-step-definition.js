@@ -55,6 +55,10 @@ When('I click on mini images', ()=>{
 When('I on category page and click on the item', () =>{
     DressesSummer.viewMoreFunc();
 })
-When('I click on the button Add to Cart', ()=>{
-    DressesSummer.addToCart();
+Given('I go to the category page Summer Dresses',()=>{
+    cy.visit('/');
+    DressesSummer.categoryDresses();
+})
+When("I click on the button Add to compare on the item's boxes and click on button Compare", ()=>{
+    DressesSummer.addToCompare();
 })

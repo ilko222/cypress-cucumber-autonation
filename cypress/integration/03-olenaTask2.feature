@@ -19,12 +19,10 @@ Feature: Check functionality 'More' on subcategory Summer Dresses
         When I click on More button
         Then I should be able to see the price of the product, change quantity, choose color and change size
 
-        Scenario: 4 Check info product box - Add To Cart
+        Scenario: 4 Check info product box - Add To Cart and Add to WishList
         When I on category page and click on the item
-        Then I should be able to see the the form Add to Cart 
-        When I click on the button Add to Cart
-        Then I should be shown successful message 
-        And I should see two available buttons Countinue Shopping and Proceed to Checkout
+        Then I should be able to see the the buttons Add to Cart and Add To Wishlist
+        
         
 
     

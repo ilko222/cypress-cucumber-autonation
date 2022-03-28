@@ -1,8 +1,8 @@
 const pictureItem = '#view_full_size'
 const viewBigger = 'span[class="span_link no-print"]'
 const fullPicture = '.fancybox-skin'
-const backToShopping ='div>span[class="continue btn btn-default button exclusive-medium"]'
-const proceedToCheckout ='div>a[class="btn btn-default button button-medium"]'
+const backToShopping ='.continue > span'
+const proceedToCheckout ='.button-medium > span'
 
 class DressesSummer {
     static categoryDresses(){
@@ -39,15 +39,22 @@ class DressesSummer {
         cy.get('#color_11').click().should('not.be.disabled');
     }
     static addToCart(){
-        cy.get('#add_to_cart').click();
-        cy.get('#layer_cart').should('be.visible');
+        cy.get('.box-info-product').find('#add_to_cart').should('have.value', 'Add to cart')
+        
     }
-    static successForm(){
-        cy.get('.clearfix').find("h2>i[class='icon-ok']").should('be.visible');
-        cy.get(backToShopping).should('have.title', 'Continue shopping').and('not.be.disable');
-        cy.get(proceedToCheckout).should('have.title', 'Proceed to checkout').and('not.be.disable');
+    static addToCompare(){
+        cy.xpath("(//*[text()='Add to Compare'])[1]").click({force: true});
+        cy.xpath("(//*[text()='Add to Compare'])[2]").click({force: true});
+        cy.wait(500)
+        cy.get('button[class="btn btn-default button button-medium bt_compare bt_compare_bottom"]')
+        .should('not.be.disabled').click();
+        
 
     }
+    static comparePage(){
+        cy.url().should('include', 'products-comparison&compare_product_list');
+    }
+
 
 
 }
