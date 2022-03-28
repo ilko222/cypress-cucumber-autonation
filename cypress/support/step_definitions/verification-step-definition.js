@@ -2,6 +2,7 @@ import {Then} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 import SummerDresses from '../pages/summerDresses.po'
+import Tshirts from '../pages/tShirts.po'
 
 Then('I check the Main Page', () => {
     cy.url()
@@ -18,6 +19,8 @@ Then('Amout of found results is equal to {int}', (amount) => {
     SearchPage.countProductsOnThePage(amount);
     SearchPage.searchResultTextEqual(amount);
 })
+
+//summer dresses po
 
 //Scenario 1
 Then('Check the banner', () => {
@@ -128,6 +131,13 @@ Then('I verify Add To Wishlist functionality user logged in', () => {
 //end of scenario 3
 
 
+//tShirts po
 
+//scenario 1
+Then('Check the tshirts banner', () => {
+    Tshirts.bannerCheck();
+})
 
-
+Then('Check the tshirts header', () => {
+    Tshirts.headerCheck();
+})
