@@ -54,15 +54,10 @@ Then('They are clickable', ()=>{
 Then('I should be able to see the price of the product, change quantity, choose color and change size', ()=>{
     DressesSummer.productInfoPart();
 })
-Then('I should be able to see the the buttons Add to Cart and Add To Wishlist',()=>{
+Then("I should be able to see the the buttons Add to Cart and Add To Wishlist, shouldn't be disabled",()=>{
     DressesSummer.addToCart();
 })
-// Then('I should be shown successful message',()=>{
-//     DressesSummer.successForm();
-// })
-// And('I should see two available buttons Countinue Shopping and Proceed to Checkout',()=>{
-//     DressesSummer.successForm();
-// })
+
 Then('I should be redirected to the Page Comparising', ()=>{
     DressesSummer.comparePage();
 })

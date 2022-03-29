@@ -39,7 +39,8 @@ class DressesSummer {
         cy.get('#color_11').click().should('not.be.disabled');
     }
     static addToCart(){
-        cy.get('.box-info-product').find('#add_to_cart').should('have.value', 'Add to cart')
+        cy.get("button[name='Submit']").should('not.be.disabled');
+        cy.get('#wishlist_button').should('not.be.disabled');
         
     }
     static addToCompare(){

@@ -21,7 +21,7 @@ Feature: Check functionality 'More' on subcategory Summer Dresses
 
         Scenario: 4 Check info product box - Add To Cart and Add to WishList
         When I on category page and click on the item
-        Then I should be able to see the the buttons Add to Cart and Add To Wishlist
+        Then I should be able to see the the buttons Add to Cart and Add To Wishlist, shouldn't be disabled
         
         
 
