@@ -141,3 +141,15 @@ Then('Check the tshirts banner', () => {
 Then('Check the tshirts header', () => {
     Tshirts.headerCheck();
 })
+
+Then('Check the tshirts navigation bar', () => {
+    Tshirts.navBarCheck();
+})
+
+Then('Check the tshirts logo', () => {
+    Tshirts.logoCheck();
+})
+
+Then('Check the tshirts cart', () => {
+    Tshirts.cartCheck();
+})
