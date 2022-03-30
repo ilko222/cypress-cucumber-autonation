@@ -2,6 +2,7 @@ import {And, Given, Then, When} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 import DressesSummer from '../pages/dressesSummer.po'
+import LogIn from '../pages/logIn.po'
 
 Given('I navigate to the Main Page', () => {
     cy.visit('/');
@@ -61,4 +62,14 @@ Given('I go to the category page Summer Dresses',()=>{
 })
 When("I click on the button Add to compare on the item's boxes and click on button Compare", ()=>{
     DressesSummer.addToCompare();
+})
+Given('User goes to the main page and goes to the Sign in page', ()=>{
+    cy.visit('/');
+    cy.get('div>a[class="login"]').click();
+})
+When('I fill in email address and password', () =>{
+    LogIn.signIn();
+})
+And('I click on Sign in button', ()=>{
+    cy.get('#SubmitLogin').click();
 })

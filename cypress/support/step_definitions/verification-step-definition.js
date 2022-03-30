@@ -2,6 +2,7 @@ import {Then, And} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 import DressesSummer from '../pages/dressesSummer.po'
+import LogIn from '../pages/logIn.po'
 
 Then('I check the Main Page', () => {
     cy.url()
@@ -60,4 +61,7 @@ Then("I should be able to see the the buttons Add to Cart and Add To Wishlist, s
 
 Then('I should be redirected to the Page Comparising', ()=>{
     DressesSummer.comparePage();
+})
+Then('I should be redirected to My Account page', () =>{
+    cy.url().should('contain', 'my-account');
 })
