@@ -40,7 +40,8 @@ class DressesSummer {
     }
     static addToCart(){
         cy.get("button[name='Submit']").should('not.be.disabled');
-        cy.get('#wishlist_button').should('not.be.disabled');
+        cy.get('#wishlist_button').should('not.be.disabled').click();
+        cy.get('div>p[class="fancybox-error"]').should('contain', 'You must be logged in to manage your wishlist.');
         
     }
     static addToCompare(){
