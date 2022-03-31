@@ -35,7 +35,7 @@ class SummerDresses {
         cy.get(cart).should('contain', 'Cart')
     }
     static phoneCallCheck() {
-        cy.get('.icon-phone').should('be.visible');
+        cy.get('.shop-phone').should('be.visible');
         cy.get('.shop-phone strong').should('contain', '0123-456-789');
     }
     static checkMenu() {

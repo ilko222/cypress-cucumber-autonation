@@ -153,3 +153,27 @@ Then('Check the tshirts logo', () => {
 Then('Check the tshirts cart', () => {
     Tshirts.cartCheck();
 })
+
+Then('Check the tshirts phone call icon', () => {
+    Tshirts.phoneCallCheck();
+})
+
+Then('Check the tshirts menu', () => {
+    Tshirts.checkMenu();
+})
+
+Then('Check the tshirts left column', () => {
+    Tshirts.checkLeftColumn();
+})
+
+Then('Check the tshirts center column', () => {
+    Tshirts.checkCenterColumn();
+})
+
+Then('Check the tshirts left news letter block', () => {
+    Tshirts.checkNewsLetterBlockLeft();
+})
+
+Then('Check the tshirts footer', () => {
+    Tshirts.checkFooter();
+})
