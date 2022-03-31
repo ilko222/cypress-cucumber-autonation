@@ -65,3 +65,6 @@ Then('I should be redirected to the Page Comparising', ()=>{
 Then('I should be redirected to My Account page', () =>{
     cy.url().should('contain', 'my-account');
 })
+Then('I should see an error message', ()=>{
+    cy.get("div[class='alert alert-danger']").should('contain', 'There is 1 error');
+})

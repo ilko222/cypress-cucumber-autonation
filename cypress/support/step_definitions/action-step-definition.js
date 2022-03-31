@@ -73,3 +73,6 @@ When('I fill in email address and password', () =>{
 And('I click on Sign in button', ()=>{
     cy.get('#SubmitLogin').click();
 })
+When('I fill in invalid email address and valid password', ()=>{
+    LogIn.signInNegative();
+})

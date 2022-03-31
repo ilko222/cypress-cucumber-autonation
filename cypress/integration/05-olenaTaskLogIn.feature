@@ -10,4 +10,6 @@ Given User goes to the main page and goes to the Sign in page
     Then I should be redirected to My Account page
 
     Scenario: 2 User fills in incorrect email address and correct password
+    When I fill in invalid email address and valid password
+    Then I should see an error message 
     
