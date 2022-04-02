@@ -82,7 +82,7 @@ Then('There are no products message is visible', () => {
     SummerDresses.checkPriceSliderMinPrice();
 })
 Then('Items with specific colour are visible', () => {
-    SummerDresses.checkColorSorter();;
+    SummerDresses.checkColorSorter();
 })
 Then('Items with polyester composition are visible', () => {
     SummerDresses.checkCompositionSorterPolyester();;
@@ -176,4 +176,22 @@ Then('Check the tshirts left news letter block', () => {
 
 Then('Check the tshirts footer', () => {
     Tshirts.checkFooter();
+})
+
+Then('Check the tshirts bottom footer', () => {
+    Tshirts.checkBottomFooter();
+})
+//end of scenario 1
+
+//scenario 2
+Then('There are no products message on the tshirts page is visible', () => {
+    Tshirts.checkPriceSliderMinPrice();
+})
+
+Then('Items with specific colour on the tshirts page are visible', () => {
+    Tshirts.checkColorSorter();;
+})
+
+Then('Items with cotton composition are visible', () => {
+    Tshirts.checkCompositionSorterCotton();;
 })

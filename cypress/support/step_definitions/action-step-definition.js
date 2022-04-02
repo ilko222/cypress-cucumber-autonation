@@ -2,6 +2,7 @@ import {And, Given, Then, When} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 import SummerDresses from '../pages/summerDresses.po';
+import Tshirts from '../pages/tShirts.po';
 
 Given('I navigate to the Main Page', () => {
     cy.visit('/');
@@ -26,6 +27,7 @@ When('I input {string} into the Top Search field and click Search button', (text
     MainPage.clickOnTopSearchButton();
 })
 
+//Summerdresses.po
 //scenario 2
 When('I select in stock option in the sorter dropdown', () => {
     SummerDresses.setInStockSortingDropdownOption();
@@ -72,3 +74,16 @@ When('The user is logged in', () => {
 
 //end of scenario 3
 
+//Tshirts.po
+//scenario 2
+When('I set price slider on the tshirts page in minimal price', () => {
+    Tshirts.setPriceSliderMinPrice();
+})
+
+When('I set specific color on the tshirts page in the filter section', () => {
+    Tshirts.setColorSorter();
+})
+
+When('I set cotton compositions on the tshirts page in the filter section', () => {
+    Tshirts.setCompositionSorterCotton();
+})

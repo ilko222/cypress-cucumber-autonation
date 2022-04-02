@@ -5,9 +5,13 @@ const logo = '.logo';
 const cart = '.shopping_cart';
 const menu = '.sf-menu > li';
 const newsLetterBlockLeft = '#newsletter_block_left';
-const footer = '#footer  > .row'
+const footer = '#footer  > .row';
+const priceSlider = '.ui-slider-handle';
 
 class Tshirts {
+
+    //scenario 1
+
     static bannerCheck() {
         cy.get(banner).should('contain', 'The must have of your wardrobe, take a look at our different colors,')
         cy.get(".category-name").should('be.visible').and('contain', 'T-shirts')
@@ -67,6 +71,42 @@ class Tshirts {
     };
     static checkNewsLetterBlockLeft() {
         cy.get(newsLetterBlockLeft).should('have.class', 'block').and('be.visible').and('contain', 'Newsletter');
+    };
+    static checkBottomFooter() {
+        cy.get('.bottom-footer').should('contain', 'Ecommerce software by PrestaShop™').and('contain', '© 2014');
+        cy.get('.bottom-footer>div').children().should('have.class', '_blank').and('have.attr', 'target', '_blank');
+    };
+
+    //end of scenario 1
+
+    //scenario 2
+
+    static setPriceSliderMinPrice() {
+        cy.get(priceSlider).eq(1).trigger('mousedown', { which: 1 })
+        cy.get(priceSlider).eq(0).trigger('mousemove').trigger('mouseup', { force: true });
+    };
+    static checkPriceSliderMinPrice() {
+        cy.get('.product_list').should('contain', 'There are no products.')
+        cy.visit('/');
+        cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
+    };
+
+    static setColorSorter() {
+        cy.get('#ul_layered_id_attribute_group_3 li').contains('Orange').click();        
+    };
+    static checkColorSorter() {
+        cy.get(".color_to_pick_list").as('color').should('have.length', 1); 
+        cy.visit('/');
+        cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
+    };
+
+    static setCompositionSorterCotton() {
+        cy.get('#layered_id_feature_5').click();       
+    };
+    static checkCompositionSorterCotton() {
+        cy.get('.product_img_link').should('have.length', 1);
+        cy.visit('/');
+        cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();       
     };
 }
 
