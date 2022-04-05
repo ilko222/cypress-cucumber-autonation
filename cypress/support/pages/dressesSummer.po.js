@@ -3,6 +3,11 @@ const viewBigger = 'span[class="span_link no-print"]'
 const fullPicture = '.fancybox-skin'
 const backToShopping ='.continue > span'
 const proceedToCheckout ='.button-medium > span'
+const productFirst = "li[class='ajax_block_product col-xs-12 col-sm-6 col-md-4 first-in-line last-line first-item-of-tablet-line first-item-of-mobile-line last-mobile-line']"
+const productSecond = 'li[class="ajax_block_product col-xs-12 col-sm-6 col-md-4 last-line last-item-of-tablet-line last-mobile-line"]'
+const compareButton = 'button[class="btn btn-default button button-medium bt_compare bt_compare_bottom"]'
+const productThird = 'li[class="ajax_block_product col-xs-12 col-sm-6 col-md-4 last-in-line last-line first-item-of-tablet-line last-item-of-mobile-line last-mobile-line"]'
+const productFourth = 'li[class="ajax_block_product col-xs-12 col-sm-6 col-md-4 first-in-line last-line first-item-of-tablet-line first-item-of-mobile-line last-mobile-line"]'
 
 class DressesSummer {
     static categoryDresses(){
@@ -45,16 +50,33 @@ class DressesSummer {
         
     }
     static addToCompare(){
-        cy.xpath("(//*[text()='Add to Compare'])[1]").click({force: true});
-        cy.xpath("(//*[text()='Add to Compare'])[2]").click({force: true});
-        cy.wait(500)
-        cy.get('button[class="btn btn-default button button-medium bt_compare bt_compare_bottom"]')
-        .should('not.be.disabled').click();
-        
-
+        cy.get(productFirst).find('div>a[class="add_to_compare"]').click({force: true});
+        cy.wait(1000);
+        cy.get(compareButton).should('contain', "1");
+        cy.get(productSecond).find('div>a[class="add_to_compare"]').click({force: true});
+        cy.wait(1000);
+        cy.get(compareButton).should('contain', '2');
+        cy.get(compareButton).click();
     }
+    static addToCompareFourItems(){
+        cy.get(productFirst).find('div>a[class="add_to_compare"]').click({force: true});
+        cy.wait(1000);
+        cy.get(compareButton).should('contain', "1");
+        cy.get(productSecond).find('div>a[class="add_to_compare"]').click({force: true});
+        cy.wait(1000);
+        cy.get(compareButton).should('contain', '2');
+        cy.get(productThird).find('div>a[class="add_to_compare"]').click({force: true});
+        cy.wait(1500);
+        cy.get(compareButton).should('contain', '3');
+        cy.xpath('(//*[text()="Evening Dresses"]) [2]').click({force: true});
+        cy.get(productFourth).find('div>a[class="add_to_compare"]').click({force: true});
+    }
+
     static comparePage(){
         cy.url().should('include', 'products-comparison&compare_product_list');
+    }
+    static errorCompare(){
+        cy.get('.fancybox-error').should('contain', 'You cannot add more than 3 product(s) to the product comparison');
     }
 
 

@@ -63,6 +63,10 @@ Given('I go to the category page Summer Dresses',()=>{
 When("I click on the button Add to compare on the item's boxes and click on button Compare", ()=>{
     DressesSummer.addToCompare();
 })
+When('I add four items to compare and click on the button Compare', () =>{
+    DressesSummer.addToCompareFourItems();
+})
+
 Given('User goes to the main page and goes to the Sign in page', ()=>{
     cy.visit('/');
     cy.get('div>a[class="login"]').click();

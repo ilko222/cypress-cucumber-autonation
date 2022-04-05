@@ -62,6 +62,10 @@ Then("I should be able to see the the buttons Add to Cart and Add To Wishlist, s
 Then('I should be redirected to the Page Comparising', ()=>{
     DressesSummer.comparePage();
 })
+Then('I should be able to see an error message', ()=>{
+  DressesSummer.errorCompare();
+})
+
 Then('I should be redirected to My Account page', () =>{
     cy.url().should('contain', 'my-account');
 })
