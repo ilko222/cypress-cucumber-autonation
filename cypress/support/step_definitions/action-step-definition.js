@@ -87,3 +87,7 @@ When('I set specific color on the tshirts page in the filter section', () => {
 When('I set cotton compositions on the tshirts page in the filter section', () => {
     Tshirts.setCompositionSorterCotton();
 })
+
+When('The cart is not empty', () => {
+    Tshirts.addItemToCart();
+})

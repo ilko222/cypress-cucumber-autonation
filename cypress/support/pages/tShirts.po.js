@@ -7,6 +7,8 @@ const menu = '.sf-menu > li';
 const newsLetterBlockLeft = '#newsletter_block_left';
 const footer = '#footer  > .row';
 const priceSlider = '.ui-slider-handle';
+const addToCartBtn = '.ajax_add_to_cart_button ';
+
 
 class Tshirts {
 
@@ -108,7 +110,26 @@ class Tshirts {
         cy.visit('/');
         cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();       
     };
+    static addItemToCart() {
+        cy.get(addToCartBtn).click({force: true});
+        cy.wait(8000);
+        cy.get('.layer_cart_product').should('be.visible');
+        cy.get('.icon-ok').should('be.visible');
+        cy.get('.button-medium').contains('Proceed to checkout').click();
+        cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
+        cy.get('#email').type('asd1234@mail.com');
+        cy.get('#passwd').type('Password1234');
+        cy.get('#SubmitLogin').contains('Sign in').click();
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('#cgv').check();
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('.bankwire').click();
+        cy.get('#cart_navigation > .button > span').click();
+        cy.get('.box').should('contain', 'Your order on My Store is complete');
+        cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product')
+    };
 }
+
 
 
 export default Tshirts
