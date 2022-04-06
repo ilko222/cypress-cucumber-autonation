@@ -72,3 +72,6 @@ Then('I should be redirected to My Account page', () =>{
 Then('I should see an error message', ()=>{
     cy.get("div[class='alert alert-danger']").should('contain', 'There is 1 error');
 })
+Then('I should see an error message about required fields', ()=>{
+    cy.get("div[class='alert alert-danger']").should('contain', 'There is 1 error');
+})

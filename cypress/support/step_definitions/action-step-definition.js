@@ -80,3 +80,6 @@ And('I click on Sign in button', ()=>{
 When('I fill in invalid email address and valid password', ()=>{
     LogIn.signInNegative();
 })
+When("I don't fill in email and password and click on Sign in button", ()=>{
+    LogIn.logInEmpty();
+})

@@ -17,5 +17,9 @@ class LogIn {
             cy.get('#SubmitLogin').click();
         })
     }
+    static logInEmpty(){
+        cy.get('#SubmitLogin').click();
+
+    }
 }
 export default LogIn
