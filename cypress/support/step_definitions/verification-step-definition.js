@@ -3,6 +3,7 @@ import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 import DressesSummer from '../pages/dressesSummer.po'
 import LogIn from '../pages/logIn.po'
+import NewsLetters from '../pages/subscription.po'
 
 Then('I check the Main Page', () => {
     cy.url()
@@ -74,4 +75,8 @@ Then('I should see an error message', ()=>{
 })
 Then('I should see an error message about required fields', ()=>{
     cy.get("div[class='alert alert-danger']").should('contain', 'There is 1 error');
+})
+Then('I should see successful submition message', () =>{
+    NewsLetters.successfullMessage();
+
 })

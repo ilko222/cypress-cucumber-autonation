@@ -3,6 +3,7 @@ import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 import DressesSummer from '../pages/dressesSummer.po'
 import LogIn from '../pages/logIn.po'
+import NewsLetters from '../pages/subscription.po'
 
 Given('I navigate to the Main Page', () => {
     cy.visit('/');
@@ -82,4 +83,10 @@ When('I fill in invalid email address and valid password', ()=>{
 })
 When("I don't fill in email and password and click on Sign in button", ()=>{
     LogIn.logInEmpty();
+})
+Given('I navigate to the Main Page', ()=>{
+    cy.visit('/');
+})
+When('I enter email and click on submit button', ()=>{
+    NewsLetters.subscription();
 })

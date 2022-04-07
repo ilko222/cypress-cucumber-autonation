@@ -37,3 +37,4 @@ Feature: Go to the Main Page And check Top Menu Functionality
         When I click on "Popular" section and "Best Sellers"
         Then I should be shown 14 available items in both of these categories
 
+   
