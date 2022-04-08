@@ -195,3 +195,11 @@ Then('Items with specific colour on the tshirts page are visible', () => {
 Then('Items with cotton composition are visible', () => {
     Tshirts.checkCompositionSorterCotton();;
 })
+
+Then('Check the checkout flow for logged out user', () => {
+    Tshirts.checkoutUserLoggedOut();
+})
+
+Then('Check the checkout flow for logged in user', () => {
+    Tshirts.checkoutUserLoggedIn();
+})

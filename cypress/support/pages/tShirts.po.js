@@ -110,12 +110,36 @@ class Tshirts {
         cy.visit('/');
         cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();       
     };
-    static addItemToCart() {
+    //end of scenario 2
+
+    //scenario 3
+    static addOneItemToCart() {
+        //cy.visit('/');
+        cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
         cy.get(addToCartBtn).click({force: true});
         cy.wait(8000);
         cy.get('.layer_cart_product').should('be.visible');
         cy.get('.icon-ok').should('be.visible');
+        cy.get('#layer_cart_product_quantity').should('contain', '1');
         cy.get('.button-medium').contains('Proceed to checkout').click();
+    };
+    static addMultipleItemsToCart() {
+        //cy.visit('/');
+        cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
+        cy.get(addToCartBtn).click({force: true});
+        cy.wait(8000);
+        cy.get('.exclusive-medium').contains('Continue shopping');
+        cy.get(addToCartBtn).click({force: true});
+        cy.wait(8000);
+        cy.get('.layer_cart_product').should('be.visible');
+        cy.get('.icon-ok').should('be.visible');
+        cy.get('#layer_cart_product_quantity').should('contain', '2');
+        cy.get('.button-medium').contains('Proceed to checkout').click();
+    };
+    static logOut() {
+        cy.get('.logout').click({ force: true });
+    }
+    static checkoutUserLoggedOut() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
         cy.get('#email').type('asd1234@mail.com');
         cy.get('#passwd').type('Password1234');
@@ -126,10 +150,21 @@ class Tshirts {
         cy.get('.bankwire').click();
         cy.get('#cart_navigation > .button > span').click();
         cy.get('.box').should('contain', 'Your order on My Store is complete');
-        cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product')
+        cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product');
+        //cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
+    };
+    static checkoutUserLoggedIn() {
+        cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('#cgv').check();
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('.bankwire').click();
+        cy.get('.box').should('contain', 'You have chosen to pay by bank wire. Here is a short summary of your order');
+        cy.get('.button').contains('I confirm my order').click();
+        cy.get('.box').should('contain', 'Your order on My Store is complete');
+        cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product');
+        //cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
     };
 }
-
-
 
 export default Tshirts

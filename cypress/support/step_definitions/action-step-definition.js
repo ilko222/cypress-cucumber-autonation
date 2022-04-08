@@ -87,7 +87,17 @@ When('I set specific color on the tshirts page in the filter section', () => {
 When('I set cotton compositions on the tshirts page in the filter section', () => {
     Tshirts.setCompositionSorterCotton();
 })
+//end of scenario 2
 
-When('The cart is not empty', () => {
-    Tshirts.addItemToCart();
+//scenario 3
+When('I add one item to the cart', () => {
+    Tshirts.addOneItemToCart();
+})
+
+When('I add multiple items to the cart', () => {
+    Tshirts.addMultipleItemsToCart();
+})
+
+When('The user is logged out', () => {
+    Tshirts.logOut();
 })
