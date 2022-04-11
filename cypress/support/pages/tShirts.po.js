@@ -114,7 +114,6 @@ class Tshirts {
 
     //scenario 3
     static addOneItemToCart() {
-        //cy.visit('/');
         cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
         cy.get(addToCartBtn).click({force: true});
         cy.wait(8000);
@@ -124,7 +123,6 @@ class Tshirts {
         cy.get('.button-medium').contains('Proceed to checkout').click();
     };
     static addMultipleItemsToCart() {
-        //cy.visit('/');
         cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
         cy.get(addToCartBtn).click({force: true});
         cy.wait(8000);
@@ -151,7 +149,6 @@ class Tshirts {
         cy.get('#cart_navigation > .button > span').click();
         cy.get('.box').should('contain', 'Your order on My Store is complete');
         cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product');
-        //cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
     };
     static checkoutUserLoggedIn() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
@@ -163,7 +160,32 @@ class Tshirts {
         cy.get('.button').contains('I confirm my order').click();
         cy.get('.box').should('contain', 'Your order on My Store is complete');
         cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product');
-        //cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
+    };
+    static checkoutWrongPassword() {
+        cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
+        cy.get('#email').type('asd1234@mail.com');
+        cy.get('#passwd').type('Password1');
+        cy.get('#SubmitLogin').contains('Sign in').click();
+        cy.get('.alert-danger').contains('There is 1 error').should('be.visible');
+        cy.get('.alert-danger').children().should('contain', 'Authentication failed.');
+    };
+    static checkoutWrongEmail() {
+        cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
+        cy.get('#email').type('asd1.com');
+        cy.get('#passwd').type('Password1234');
+        cy.get('#SubmitLogin').contains('Sign in').click();
+        cy.get('.alert-danger').contains('There is 1 error').should('be.visible');
+        cy.get('.alert-danger').children().should('contain', 'Invalid email address.');
+    };
+    static checkoutTermsOfServiceNotChecked() {
+        cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
+        cy.get('#email').type('asd1234@mail.com');
+        cy.get('#passwd').type('Password1234');
+        cy.get('#SubmitLogin').contains('Sign in').click();
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('.fancybox-error').should('be.visible').and('contain', 'You must agree to the terms of service before continuing.');
+        cy.get('.fancybox-close').click();
     };
 }
 

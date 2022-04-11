@@ -203,3 +203,15 @@ Then('Check the checkout flow for logged out user', () => {
 Then('Check the checkout flow for logged in user', () => {
     Tshirts.checkoutUserLoggedIn();
 })
+
+Then('Check the checkout flow for the user with wrong password', () => {
+    Tshirts.checkoutWrongPassword();
+})
+
+Then('Check the checkout flow for the user with wrong email', () => {
+    Tshirts.checkoutWrongPassword();
+})
+
+Then('Check the checkout flow with terms of service not checked', () => {
+    Tshirts.checkoutTermsOfServiceNotChecked();
+})
