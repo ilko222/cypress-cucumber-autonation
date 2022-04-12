@@ -137,7 +137,7 @@ class Tshirts {
     static logOut() {
         cy.get('.logout').click({ force: true });
     }
-    static checkoutUserLoggedOut() {
+    static checkoutUserLoggedOutBankwire() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
         cy.get('#email').type('asd1234@mail.com');
         cy.get('#passwd').type('Password1234');
@@ -150,7 +150,20 @@ class Tshirts {
         cy.get('.box').should('contain', 'Your order on My Store is complete');
         cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product');
     };
-    static checkoutUserLoggedIn() {
+    static checkoutUserLoggedOutCheck() {
+        cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
+        cy.get('#email').type('asd1234@mail.com');
+        cy.get('#passwd').type('Password1234');
+        cy.get('#SubmitLogin').contains('Sign in').click();
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('#cgv').check();
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('.cheque').click();
+        cy.get('#cart_navigation > .button > span').click();
+        cy.get('.box').should('contain', 'Your check must include:');
+        cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product');
+    };
+    static checkoutUserLoggedInBankwire() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
         cy.get('.cart_navigation > .button > span').click();
         cy.get('#cgv').check();
@@ -159,6 +172,17 @@ class Tshirts {
         cy.get('.box').should('contain', 'You have chosen to pay by bank wire. Here is a short summary of your order');
         cy.get('.button').contains('I confirm my order').click();
         cy.get('.box').should('contain', 'Your order on My Store is complete');
+        cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product');
+    };
+    static checkoutUserLoggedInCheck() {
+        cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('#cgv').check();
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('.cheque').click();
+        cy.get('.box').should('contain', 'You have chosen to pay by check. Here is a short summary of your order');
+        cy.get('.button').contains('I confirm my order').click();
+        cy.get('.box').should('contain', 'Your check must include:');
         cy.get('[title="View my shopping cart"] > span').should('have.class', 'ajax_cart_no_product');
     };
     static checkoutWrongPassword() {

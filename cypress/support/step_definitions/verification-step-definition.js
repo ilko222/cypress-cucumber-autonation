@@ -196,12 +196,20 @@ Then('Items with cotton composition are visible', () => {
     Tshirts.checkCompositionSorterCotton();;
 })
 
-Then('Check the checkout flow for logged out user', () => {
-    Tshirts.checkoutUserLoggedOut();
+Then('Check the checkout flow for logged out user bankwire', () => {
+    Tshirts.checkoutUserLoggedOutBankwire();
 })
 
-Then('Check the checkout flow for logged in user', () => {
-    Tshirts.checkoutUserLoggedIn();
+Then('Check the checkout flow for logged out user check', () => {
+    Tshirts.checkoutUserLoggedOutCheck();
+})
+
+Then('Check the checkout flow for logged in user bankwire', () => {
+    Tshirts.checkoutUserLoggedInBankwire();
+})
+
+Then('Check the checkout flow for logged in user check', () => {
+    Tshirts.checkoutUserLoggedInCheck();
 })
 
 Then('Check the checkout flow for the user with wrong password', () => {

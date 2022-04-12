@@ -24,40 +24,62 @@ Feature: Go to the tshirts Page and check the layout
 #         When I set cotton compositions on the tshirts page in the filter section
 #         Then Items with cotton composition are visible
 
-# Scenario: 3 Check the ordering functionality: one item; logged out user
-#         Given I navigate to the tshirts page
-#         When I add one item to the cart
-#         Then Check the checkout flow for logged out user
+Scenario: 3 Check the ordering functionality: one item; logged out user; bankwire
+        Given I navigate to the tshirts page
+        When I add one item to the cart
+        Then Check the checkout flow for logged out user bankwire
+
+Scenario: 3 Check the ordering functionality: one item; logged out user; check
+        Given I navigate to the tshirts page
+        When I add one item to the cart
+        Then Check the checkout flow for logged out user check
         
-# Scenario: 3 Check the ordering functionality: multiple items; logged out user
+Scenario: 3 Check the ordering functionality: multiple items; logged out user; bankwire
+        Given I navigate to the tshirts page
+        When I add multiple items to the cart
+        Then Check the checkout flow for logged out user bankwire
+
+Scenario: 3 Check the ordering functionality: multiple items; logged out user; check
+        Given I navigate to the tshirts page
+        When I add multiple items to the cart
+        Then Check the checkout flow for logged out user check
+
+Scenario: 3 Check the ordering functionality: one item; logged in user; bankwire
+        Given I navigate to the Main Page
+        When The user is logged in
+        When I add one item to the cart
+        Then Check the checkout flow for logged in user bankwire
+
+Scenario: 3 Check the ordering functionality: one item; logged in user; check
+        Given I navigate to the Main Page
+        When The user is logged in
+        When I add one item to the cart
+        Then Check the checkout flow for logged in user check
+
+Scenario: 3 Check the ordering functionality: multiple items; logged in user; bankwire
+        Given I navigate to the Main Page
+        When The user is logged in
+        When I add multiple items to the cart
+        Then Check the checkout flow for logged in user bankwire
+
+Scenario: 3 Check the ordering functionality: one item; logged in user; check
+        Given I navigate to the Main Page
+        When The user is logged in
+        When I add one item to the cart
+        Then Check the checkout flow for logged in user check
+
+# Scenario: 3 Check the ordering functionality: one item; wrong password
 #         Given I navigate to the tshirts page
-#         When I add multiple items to the cart
-#         Then Check the checkout flow for logged out user
-
-# Scenario: 3 Check the ordering functionality: one item; logged in user
-#         Given I navigate to the Main Page
-#         When The user is logged in
 #         When I add one item to the cart
-#         Then Check the checkout flow for logged in user
+#         Then Check the checkout flow for the user with wrong password
 
-# Scenario: 3 Check the ordering functionality: multiple items; logged in user
-#         Given I navigate to the Main Page
-#         When The user is logged in
-#         When I add multiple items to the cart
-#         Then Check the checkout flow for logged in user
+# Scenario: 3 Check the ordering functionality: one item; wrong email
+#         Given I navigate to the tshirts page
+#         When I add one item to the cart
+#         Then Check the checkout flow for the user with wrong email
 
-Scenario: 3 Check the ordering functionality: one item; wrong password
-        Given I navigate to the tshirts page
-        When I add one item to the cart
-        Then Check the checkout flow for the user with wrong password
-
-Scenario: 3 Check the ordering functionality: one item; wrong email
-        Given I navigate to the tshirts page
-        When I add one item to the cart
-        Then Check the checkout flow for the user with wrong email
-
-Scenario: 3 Check the ordering functionality: terms of service not checked
-        Given I navigate to the tshirts page
-        When I add one item to the cart
-        Then Check the checkout flow with terms of service not checked
+# Scenario: 3 Check the ordering functionality: terms of service not checked
+#         Given I navigate to the tshirts page
+#         When I add one item to the cart
+#         Then Check the checkout flow with terms of service not checked
 
