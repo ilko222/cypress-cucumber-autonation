@@ -78,5 +78,10 @@ Then('I should see an error message about required fields', ()=>{
 })
 Then('I should see successful submition message', () =>{
     NewsLetters.successfullMessage();
-
+})
+Then('I should see a notice with error message', ()=>{
+    cy.get('div>p[class="alert alert-danger"]').should('contain', 'Newsletter : This email address is already registered.');
+})
+Then('I should be represented with error message', ()=>{
+    cy.get('div>p[class="alert alert-danger"]').should('contain', 'Newsletter : Invalid email address.');
 })

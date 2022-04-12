@@ -90,3 +90,9 @@ Given('I navigate to the Main Page', ()=>{
 When('I enter email and click on submit button', ()=>{
     NewsLetters.subscription();
 })
+When('I enter email that was already registered and click on submit button', ()=>{
+    NewsLetters.errorSubmition();
+})
+When('I leave the field Newsletter empty', ()=>{
+    NewsLetters.emptySubmittion();
+})

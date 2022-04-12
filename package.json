@@ -30,5 +30,8 @@
     "cypress": "^9.4.1",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-xpath": "^1.6.2"
+  },
+  "dependencies": {
+    "random-email": "^1.0.3"
   }
 }
