@@ -223,3 +223,11 @@ Then('Check the checkout flow for the user with wrong email', () => {
 Then('Check the checkout flow with terms of service not checked', () => {
     Tshirts.checkoutTermsOfServiceNotChecked();
 })
+
+Then('Check the checkout flow with new account creation with existing email', () => {
+    Tshirts.checkoutUserLoggedOutAccountCreation();
+})
+
+Then('Check the checkout flow with reading terms of service', () => {
+    Tshirts.checkoutReadingTermsOfService();
+})

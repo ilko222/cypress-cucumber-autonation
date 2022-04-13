@@ -211,6 +211,23 @@ class Tshirts {
         cy.get('.fancybox-error').should('be.visible').and('contain', 'You must agree to the terms of service before continuing.');
         cy.get('.fancybox-close').click();
     };
+    static checkoutReadingTermsOfService() {
+        cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
+        cy.get('#email').type('asd1234@mail.com');
+        cy.get('#passwd').type('Password1234');
+        cy.get('#SubmitLogin').contains('Sign in').click();
+        cy.get('.cart_navigation > .button > span').click();
+        cy.get('.iframe').click();
+        cy.get('.fancybox-opened').children().should('be.visible');
+        cy.get('.fancybox-close').click();
+    };
+    static checkoutUserLoggedOutAccountCreation() {
+        cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
+        cy.get('#email_create').type('asd1234@mail.com');
+        cy.get('#SubmitCreate').contains('Create an account').click({force: true});
+        cy.wait(8000);
+        cy.get('#create_account_error').should('be.visible').and('contain', 'An account using this email address has already been registered.');
+    };
 }
 
 export default Tshirts
