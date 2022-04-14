@@ -16,7 +16,7 @@ class NewsLetters{
         cy.get('button[class="btn btn-default button button-small"]').click();
     }
     static emptySubmittion(){
-        cy.get('button[class="btn btn-default button button-small"]').click();
+        cy.get('button[class="btn btn-default button button-small"]').click();    
         
     }
 

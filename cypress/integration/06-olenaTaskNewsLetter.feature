@@ -14,3 +14,7 @@ Feature: Check Newsletters field
     Scenario: 3 Check subscription with empty input 
     When I leave the field Newsletter empty 
     Then I should be represented with error message
+
+    Scenario: 4 Check API status when user enter email
+    When I put correct email in the field
+    Then status should be 200
