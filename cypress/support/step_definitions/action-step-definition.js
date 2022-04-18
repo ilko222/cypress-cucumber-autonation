@@ -4,6 +4,7 @@ import SearchPage from '../pages/searchPage.po'
 import DressesSummer from '../pages/dressesSummer.po'
 import LogIn from '../pages/logIn.po'
 import NewsLetters from '../pages/subscription.po'
+import SortingFilter from '../pages/categoryFiltersAndSorting.po'
 
 Given('I navigate to the Main Page', () => {
     cy.visit('/');
@@ -95,4 +96,10 @@ When('I enter email that was already registered and click on submit button', ()=
 })
 When('I leave the field Newsletter empty', ()=>{
     NewsLetters.emptySubmittion();
+})
+Given('I navigate to the Summer Dresses category', ()=>{
+    cy.visit('http://automationpractice.com/index.php?id_category=11&controller=category');
+})
+When('I choose Sort by', ()=>{
+ SortingFilter.sortByPrice();
 })

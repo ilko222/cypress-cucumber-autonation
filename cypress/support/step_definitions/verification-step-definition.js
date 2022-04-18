@@ -4,6 +4,7 @@ import SearchPage from '../pages/searchPage.po'
 import DressesSummer from '../pages/dressesSummer.po'
 import LogIn from '../pages/logIn.po'
 import NewsLetters from '../pages/subscription.po'
+import SortingFilter from '../pages/categoryFiltersAndSorting.po'
 
 Then('I check the Main Page', () => {
     cy.url()
@@ -66,6 +67,9 @@ Then('I should be redirected to the Page Comparising', ()=>{
 Then('I should be able to see an error message', ()=>{
   DressesSummer.errorCompare();
 })
+Then('Items should be sorted by available options', ()=>{
+
+})
 
 Then('I should be redirected to My Account page', () =>{
     cy.url().should('contain', 'my-account');
@@ -84,4 +88,7 @@ Then('I should see a notice with error message', ()=>{
 })
 Then('I should be represented with error message', ()=>{
     cy.get('div>p[class="alert alert-danger"]').should('contain', 'Newsletter : Invalid email address.');
+})
+Then('Items should be sorted by available options', () =>{
+    SortingFilter.sortByPrice();
 })
