@@ -68,6 +68,16 @@ Feature: Go to the tshirts Page and check the layout
 #         When I add one item to the cart
 #         Then Check the checkout flow for logged in user check
 
+Scenario: 3 Check the ordering functionality: one item; new account creation; bankwire
+        Given I navigate to the Main Page
+        When I add one item to the cart
+        Then Check the checkout flow with new account creation bankwire
+
+Scenario: 3 Check the ordering functionality: one item; new account creation; check
+        Given I navigate to the Main Page
+        When I add one item to the cart
+        Then Check the checkout flow with new account creation check
+
 # Scenario: 3 Check the ordering functionality: one item; wrong password
 #         Given I navigate to the tshirts page
 #         When I add one item to the cart
@@ -83,10 +93,10 @@ Feature: Go to the tshirts Page and check the layout
 #         When I add one item to the cart
 #         Then Check the checkout flow with terms of service not checked
 
-Scenario: 3 Check the ordering functionality: reading terms of service
-        Given I navigate to the tshirts page
-        When I add one item to the cart
-        Then Check the checkout flow with reading terms of service
+# Scenario: 3 Check the ordering functionality: reading terms of service
+#         Given I navigate to the tshirts page
+#         When I add one item to the cart
+#         Then Check the checkout flow with reading terms of service
 
 # Scenario: 3 Check the ordering functionality: create new account with existing email
 #         Given I navigate to the tshirts page

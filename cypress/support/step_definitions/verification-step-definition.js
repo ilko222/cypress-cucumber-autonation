@@ -193,7 +193,7 @@ Then('Items with specific colour on the tshirts page are visible', () => {
 })
 
 Then('Items with cotton composition are visible', () => {
-    Tshirts.checkCompositionSorterCotton();;
+    Tshirts.checkCompositionSorterCotton();
 })
 
 Then('Check the checkout flow for logged out user bankwire', () => {
@@ -212,12 +212,22 @@ Then('Check the checkout flow for logged in user check', () => {
     Tshirts.checkoutUserLoggedInCheck();
 })
 
+Then('Check the checkout flow with new account creation bankwire', () =>{
+    Tshirts.checkoutCreateNewAccountBankwire();
+    //Tshirts.bankwirePaymentMethod('Your order on My Store is complete');
+})
+
+Then('Check the checkout flow with new account creation check', () =>{
+    Tshirts.checkoutCreateNewAccountCheck();
+    //Tshirts.checkPaymentMethod('Your check must include:');
+})
+
 Then('Check the checkout flow for the user with wrong password', () => {
     Tshirts.checkoutWrongPassword();
 })
 
 Then('Check the checkout flow for the user with wrong email', () => {
-    Tshirts.checkoutWrongPassword();
+    Tshirts.checkoutWrongEmail();
 })
 
 Then('Check the checkout flow with terms of service not checked', () => {
@@ -225,7 +235,7 @@ Then('Check the checkout flow with terms of service not checked', () => {
 })
 
 Then('Check the checkout flow with new account creation with existing email', () => {
-    Tshirts.checkoutUserLoggedOutAccountCreation();
+    Tshirts.checkoutUserexistingEmailAccountCreation();
 })
 
 Then('Check the checkout flow with reading terms of service', () => {

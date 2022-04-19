@@ -14,8 +14,7 @@ Given('I navigate to the Woman Summer Dresses page', () => {
 })
 
 Given('I navigate to the tshirts page', () => {
-    cy.visit('/');
-    cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
+    Tshirts.goToTshirtsPage();
 })
 
 When('I click on Top Menu item with text {string}', (menuItemText) => {
