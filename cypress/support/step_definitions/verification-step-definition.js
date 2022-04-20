@@ -92,3 +92,9 @@ Then('I should be represented with error message', ()=>{
 Then('Items should be sorted by available options', () =>{
     SortingFilter.sortByPrice();
 })
+Then('Checkboxes should be clickable',()=>{
+    SortingFilter.sizeFilter();
+})
+Then('I should be able to see the items for the choosen color', ()=>{
+    SortingFilter.colorCheckingProd();
+})

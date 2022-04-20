@@ -7,6 +7,12 @@ Feature: Go to the Summer Dresses category and check Sort and Filter functionali
     When I choose Sort by 
     Then Items should be sorted by available options
 
+    Scenario: 2 Check checkboxes on category pages 
+    When I click on checkboxes Size 
+    Then Checkboxes should be clickable
+    When I click on checkboxes Color
+    Then I should be able to see the items for the choosen color
+
 
 
     

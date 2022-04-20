@@ -103,3 +103,9 @@ Given('I navigate to the Summer Dresses category', ()=>{
 When('I choose Sort by', ()=>{
  SortingFilter.sortByPrice();
 })
+When('I click on checkboxes Size', ()=>{
+    SortingFilter.sizeFilter();
+})
+When('I click on checkboxes Color', ()=>{
+    SortingFilter.colorFilters();
+})
