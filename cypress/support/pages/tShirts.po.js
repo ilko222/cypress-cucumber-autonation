@@ -123,7 +123,7 @@ class Tshirts {
     static createNewAccountDuringCheckoutFlow() {
         cy.get('#email_create').type(randomEmail({ domain: 'mail.com' }));
         cy.get('#SubmitCreate').contains('Create an account').click({force: true});
-        //cy.url().should('contain', 'account-creation'); Should be working well, but is not stable
+        cy.url().should('contain', 'account-creation'); //Should be working well, but is not stable
         cy.get('#id_gender1').check();
         cy.get('#customer_firstname').type(randomize('Aa'));
         cy.get('#customer_lastname').type(randomize('Aa'));

@@ -214,12 +214,10 @@ Then('Check the checkout flow for logged in user check', () => {
 
 Then('Check the checkout flow with new account creation bankwire', () =>{
     Tshirts.checkoutCreateNewAccountBankwire();
-    //Tshirts.bankwirePaymentMethod('Your order on My Store is complete');
 })
 
 Then('Check the checkout flow with new account creation check', () =>{
     Tshirts.checkoutCreateNewAccountCheck();
-    //Tshirts.checkPaymentMethod('Your check must include:');
 })
 
 Then('Check the checkout flow for the user with wrong password', () => {

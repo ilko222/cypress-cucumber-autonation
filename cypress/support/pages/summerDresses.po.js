@@ -175,11 +175,23 @@ class SummerDresses {
         cy.get(wishList).click({ force: true });
         cy.get(errorBox).should('contain', string);
     }
+    // static createUsersList() {
+    //     cy.fixture('users.json').as('a');
+    //     cy.log(this.a);
+    //     return this.a;
+    // }
     static logIn() {
-        cy.get('.login').click({ force: true });
-        cy.get('#email').type('asd1234@mail.com');
-        cy.get('#passwd').type('Password1234');
-        cy.get('.icon-lock').click();
+        cy.fixture('users').then(function (data) {
+            this.data = data;
+            cy.get('.login').click({ force: true });
+            cy.get('#email').type(data[0].email);
+            cy.get('#passwd').type(data[0].password);
+            cy.get('.icon-lock').click(); 
+        });
+        // cy.get('.login').click({ force: true });
+        // cy.get('#email').type(data[0]);
+        // cy.get('#passwd').type(data[0]);
+        // cy.get('.icon-lock').click();
     }
     static wishlistPageCheck() {
         cy.get(accountButton).click({ force: true });

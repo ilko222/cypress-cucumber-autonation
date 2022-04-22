@@ -62,21 +62,21 @@ Feature: Go to the tshirts Page and check the layout
 #         When I add multiple items to the cart
 #         Then Check the checkout flow for logged in user bankwire
 
-# Scenario: 3 Check the ordering functionality: one item; logged in user; check
+Scenario: 3 Check the ordering functionality: one item; logged in user; check
+        Given I navigate to the Main Page
+        When The user is logged in
+        When I add one item to the cart
+        Then Check the checkout flow for logged in user check
+
+# Scenario: 3 Check the ordering functionality: one item; new account creation; bankwire
 #         Given I navigate to the Main Page
-#         When The user is logged in
 #         When I add one item to the cart
-#         Then Check the checkout flow for logged in user check
+#         Then Check the checkout flow with new account creation bankwire
 
-Scenario: 3 Check the ordering functionality: one item; new account creation; bankwire
-        Given I navigate to the Main Page
-        When I add one item to the cart
-        Then Check the checkout flow with new account creation bankwire
-
-Scenario: 3 Check the ordering functionality: one item; new account creation; check
-        Given I navigate to the Main Page
-        When I add one item to the cart
-        Then Check the checkout flow with new account creation check
+# Scenario: 3 Check the ordering functionality: one item; new account creation; check
+#         Given I navigate to the Main Page
+#         When I add one item to the cart
+#         Then Check the checkout flow with new account creation check
 
 # Scenario: 3 Check the ordering functionality: one item; wrong password
 #         Given I navigate to the tshirts page
