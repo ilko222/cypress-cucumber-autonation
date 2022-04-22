@@ -109,3 +109,10 @@ When('I click on checkboxes Size', ()=>{
 When('I click on checkboxes Color', ()=>{
     SortingFilter.colorFilters();
 })
+When('I click on available option on Compositions Filter - Polyster', ()=>{
+    SortingFilter.compositionFilter();
+
+})
+When('I click on Viscose', ()=>{
+    cy.get('#layered_id_feature_3').click();
+})

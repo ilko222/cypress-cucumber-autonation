@@ -98,3 +98,9 @@ Then('Checkboxes should be clickable',()=>{
 Then('I should be able to see the items for the choosen color', ()=>{
     SortingFilter.colorCheckingProd();
 })
+Then('I should see items with this Composition', ()=>{
+    cy.url().should('include', 'compositions-polyester');
+})
+Then('I should see items with Viscose composition', ()=>{
+    cy.url().should('include', 'viscose');
+})

@@ -21,6 +21,11 @@ class SortingFilter{
         cy.get('li>a[id="color_40"]').should('be.visible');
         cy.get('li>a[id="color_37"]').should('be.visible');
     }
+    static compositionFilter(){
+        cy.get('#layered_id_feature_1').click();
+    }
+
+
 
 }
 export default SortingFilter

@@ -13,6 +13,12 @@ Feature: Go to the Summer Dresses category and check Sort and Filter functionali
     When I click on checkboxes Color
     Then I should be able to see the items for the choosen color
 
+    Scenario: 3 Check compasiotion filters
+    When I click on available option on Compositions Filter - Polyster 
+    Then I should see items with this Composition
+    When I click on Viscose
+    Then I should see items with Viscose composition 
+
 
 
     
