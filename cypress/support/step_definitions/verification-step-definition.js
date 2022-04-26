@@ -98,9 +98,15 @@ Then('Checkboxes should be clickable',()=>{
 Then('I should be able to see the items for the choosen color', ()=>{
     SortingFilter.colorCheckingProd();
 })
-Then('I should see items with this Composition', ()=>{
-    cy.url().should('include', 'compositions-polyester');
+Then('I should see items with this Composition', () =>{
+    cy.wait(1500);
+    cy.url().should('include', 'polyester');
 })
-Then('I should see items with Viscose composition', ()=>{
+Then('I should see items with Viscose composition', () =>{
+    cy.wait(1500);
     cy.url().should('include', 'viscose');
+})
+Then('I should see available items those are in stock of this category', () =>{
+    cy.wait(3000);
+    cy.get('.alert').should('contain', 'There are no products.');
 })

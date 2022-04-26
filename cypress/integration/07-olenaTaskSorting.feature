@@ -19,6 +19,10 @@ Feature: Go to the Summer Dresses category and check Sort and Filter functionali
     When I click on Viscose
     Then I should see items with Viscose composition 
 
+    Scenario: 4 Check In stock filter on Summer dresses category
+    When I click on In Stock filter
+    Then I should see available items those are in stock of this category
+
 
 
     

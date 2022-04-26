@@ -116,3 +116,6 @@ When('I click on available option on Compositions Filter - Polyster', ()=>{
 When('I click on Viscose', ()=>{
     cy.get('#layered_id_feature_3').click();
 })
+When('I click on In Stock filter', () =>{
+    cy.get('#layered_quantity_1').click();
+})
