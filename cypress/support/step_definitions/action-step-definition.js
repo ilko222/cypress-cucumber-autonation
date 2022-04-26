@@ -68,7 +68,6 @@ When('I click on all specials in the specials section', () => {
 //scenario 3
 
 When('The user is logged in', () => {
-    //let data = SummerDresses.createUsersList();
     SummerDresses.logIn();
 })
 

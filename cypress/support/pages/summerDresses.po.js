@@ -1,6 +1,8 @@
 import { expect } from "chai";
 import { should } from "chai";
 
+const users = require("C:/Users/anyavorskyi/Desktop/cypress-cucumber-autonation/users.json");
+
 const banner = ".rte";
 const sorterDropDown = '.selector';
 const product = '.replace-2x';
@@ -175,23 +177,11 @@ class SummerDresses {
         cy.get(wishList).click({ force: true });
         cy.get(errorBox).should('contain', string);
     }
-    // static createUsersList() {
-    //     cy.fixture('users.json').as('a');
-    //     cy.log(this.a);
-    //     return this.a;
-    // }
     static logIn() {
-        cy.fixture('users').then(function (data) {
-            this.data = data;
-            cy.get('.login').click({ force: true });
-            cy.get('#email').type(data[0].email);
-            cy.get('#passwd').type(data[0].password);
-            cy.get('.icon-lock').click(); 
-        });
-        // cy.get('.login').click({ force: true });
-        // cy.get('#email').type(data[0]);
-        // cy.get('#passwd').type(data[0]);
-        // cy.get('.icon-lock').click();
+        cy.get('.login').click({ force: true });
+        cy.get('#email').type(users[0].email);
+        cy.get('#passwd').type(users[0].password);
+        cy.get('.icon-lock').click(); 
     }
     static wishlistPageCheck() {
         cy.get(accountButton).click({ force: true });
