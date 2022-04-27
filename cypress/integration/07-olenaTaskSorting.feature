@@ -23,6 +23,12 @@ Feature: Go to the Summer Dresses category and check Sort and Filter functionali
     When I click on In Stock filter
     Then I should see available items those are in stock of this category
 
+    Scenario: 5 Check View options
+    When I click on View, option Grid
+    Then I should see items with Grid View
+    When I click on List View
+    Then I should be represented with items with List option
+
 
 
     

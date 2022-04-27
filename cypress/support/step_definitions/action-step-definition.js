@@ -119,3 +119,9 @@ When('I click on Viscose', ()=>{
 When('I click on In Stock filter', () =>{
     cy.get('#layered_quantity_1').click();
 })
+When('I click on View, option Grid', ()=>{
+    cy.get('#grid').click();
+})
+When('I click on List View', ()=>{
+    cy.get('#list').click();
+})
