@@ -1,8 +1,10 @@
+import { use } from 'chai'
 import {Then} from 'cypress-cucumber-preprocessor/steps'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 import SummerDresses from '../pages/summerDresses.po'
 import Tshirts from '../pages/tShirts.po'
+//const users = require("C:/Users/anyavorskyi/Desktop/cypress-cucumber-autonation/users.json");
 
 Then('I check the Main Page', () => {
     cy.url()
@@ -221,11 +223,11 @@ Then('Check the checkout flow with new account creation check', () =>{
 })
 
 Then('Check the checkout flow for the user with wrong password', () => {
-    Tshirts.checkoutWrongPassword();
+    Tshirts.checkoutWrongCredentials(Tshirts.getUser().email, Tshirts.getUser().password + '///', 'Authentication failed.');
 })
 
 Then('Check the checkout flow for the user with wrong email', () => {
-    Tshirts.checkoutWrongEmail();
+    Tshirts.checkoutWrongCredentials(Tshirts.getUser().email + '///', Tshirts.getUser().password, 'Invalid email address.');
 })
 
 Then('Check the checkout flow with terms of service not checked', () => {

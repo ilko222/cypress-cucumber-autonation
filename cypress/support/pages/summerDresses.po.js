@@ -1,8 +1,6 @@
 import { expect } from "chai";
 import { should } from "chai";
-
-const users = require("C:/Users/anyavorskyi/Desktop/cypress-cucumber-autonation/users.json");
-
+import Tshirts from '../pages/tShirts.po';
 const banner = ".rte";
 const sorterDropDown = '.selector';
 const product = '.replace-2x';
@@ -18,6 +16,10 @@ const cart = '.shopping_cart';
 const newsLetterBlockLeft = '#newsletter_block_left';
 
 class SummerDresses {
+    static goToSummerDressesPage() {
+        cy.visit('/');
+        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true });
+    };
     //scenario 1
     static bannerCheck() {
         cy.get(banner).should('contain', 'Short dress, long dress, silk dress, printed dress, you will find the perfect dress for summer.')
@@ -83,8 +85,7 @@ class SummerDresses {
             cy.log('index ' + index + ' : ' + $el.text())
             cy.get($el).should('contain', 'In stock')
         });
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })
+        SummerDresses.goToSummerDressesPage();
     }
     static setPriceSliderMinPrice() {
         cy.get(priceSlider).eq(1).trigger('mousedown', { which: 1 })
@@ -93,8 +94,7 @@ class SummerDresses {
     }
     static checkPriceSliderMinPrice() {
         cy.get('.product_list').should('contain', 'There are no products.')
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })
+        SummerDresses.goToSummerDressesPage();
         //how to create positive case to compare the slider price & the product price?
     }
     static setColorSorter() {
@@ -102,72 +102,63 @@ class SummerDresses {
     }
     static checkColorSorter() {
         cy.get(".color_to_pick_list").as('color').should('have.length', 3); 
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })          
+        SummerDresses.goToSummerDressesPage();    
     }
     static setCompositionSorterPolyester() {
         cy.get('#layered_id_feature_1').click();       
     }
     static checkCompositionSorterPolyester() {
         cy.get('.product_img_link').should('have.length', 2);
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+        SummerDresses.goToSummerDressesPage();  
     }
     static setCompositionSorterViscose() {
         cy.get('#layered_id_feature_3').click();       
     }
     static checkCompositionSorterViscose() {
         cy.get('.product_img_link').should('have.length', 1);
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+        SummerDresses.goToSummerDressesPage();         
     }
     static setStyleSorterCasual() {
         cy.get('#layered_id_feature_11').click();       
     }
     static checkStyleSorterCasual() {
         cy.get('.product_img_link').should('have.length', 1);
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+        SummerDresses.goToSummerDressesPage();     
     }
     static setStyleSorterGirly() {
         cy.get('#layered_id_feature_13').click();       
     }
     static checkStyleSorterGirly() {
         cy.get('.product_img_link').should('have.length', 2);
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+        SummerDresses.goToSummerDressesPage();         
     }
     static setPropertySorterShortDress() {
         cy.get('#layered_id_feature_19').click();       
     }
     static checkPropertySorterShortDress() {
         cy.get('.product_img_link').should('have.length', 3);
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+        SummerDresses.goToSummerDressesPage();        
     }
     static setAvailabilitySorterInStock() {
         cy.get('#layered_quantity_1').click();       
     }
     static checkAvailabilitySorterInStock() {
         cy.get('.product_img_link').should('have.length', 3);
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+        SummerDresses.goToSummerDressesPage();     
     }
     static goToOurStoresPage() {
         cy.get('.block_content').contains('Our stores').click();       
     }
     static checkOurStoresPageUrl() {
         cy.url().should('contain', 'stores');
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+        SummerDresses.goToSummerDressesPage();    
     }
     static goToSpecialsPage() {
         cy.get('.btn').contains('All specials').click();       
     }
     static checkSpecialsPage() {
         cy.url().should('contain', 'prices-drop');
-        cy.visit('/');
-        cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true })         
+        SummerDresses.goToSummerDressesPage();     
     }
     //end of scenario 2
 
@@ -179,8 +170,8 @@ class SummerDresses {
     }
     static logIn() {
         cy.get('.login').click({ force: true });
-        cy.get('#email').type(users[0].email);
-        cy.get('#passwd').type(users[0].password);
+        cy.get('#email').type(Tshirts.getUser().email);
+        cy.get('#passwd').type(Tshirts.getUser().password);
         cy.get('.icon-lock').click(); 
     }
     static wishlistPageCheck() {
