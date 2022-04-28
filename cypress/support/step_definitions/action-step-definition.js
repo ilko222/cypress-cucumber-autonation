@@ -1,4 +1,5 @@
 import {And, Given, Then, When} from 'cypress-cucumber-preprocessor/steps'
+import MainClass from '../pages/mainClass.po';
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 import SummerDresses from '../pages/summerDresses.po';
@@ -68,7 +69,7 @@ When('I click on all specials in the specials section', () => {
 //scenario 3
 
 When('The user is logged in', () => {
-    SummerDresses.logIn();
+    MainClass.logIn();
 })
 
 //end of scenario 3
@@ -95,8 +96,4 @@ When('I add one item to the cart', () => {
 
 When('I add multiple items to the cart', () => {
     Tshirts.addMultipleItemsToCart();
-})
-
-When('The user is logged out', () => {
-    Tshirts.logOut();
 })

@@ -1,12 +1,7 @@
-let users;
+import MainClass from './mainClass.po';
 const banner = '.content_scene_cat_bg';
 const header = '.cat-name';
 const navBar = '.breadcrumb';
-const logo = '.logo';
-const cart = '.shopping_cart';
-const menu = '.sf-menu > li';
-const newsLetterBlockLeft = '#newsletter_block_left';
-const footer = '#footer  > .row';
 const priceSlider = '.ui-slider-handle';
 const addToCartBtn = '.ajax_add_to_cart_button ';
 var randomEmail = require('random-email');
@@ -14,14 +9,12 @@ var randomize = require('randomatic');
 
 
 class Tshirts {
-
     static goToTshirtsPage() {
         cy.visit('/');
         cy.xpath("//div[@id='block_top_menu']/ul/li[3]/a[@title='T-shirts']").click();
     }
 
     //scenario 1
-
     static bannerCheck() {
         cy.get(banner).should('contain', 'The must have of your wardrobe, take a look at our different colors,')
         cy.get(".category-name").should('be.visible').and('contain', 'T-shirts')
@@ -38,30 +31,6 @@ class Tshirts {
         cy.get('.breadcrumb > a').eq(1).should('contain', 'Women').and('have.attr', 'href', 'http://automationpractice.com/index.php?id_category=3&controller=category');
         cy.get('.breadcrumb > a').eq(2).should('contain', 'Tops').and('have.attr', 'href', 'http://automationpractice.com/index.php?id_category=4&controller=category');
     }
-    static logoCheck() {
-        cy.get(logo).should('be.visible');
-        cy.get(logo).should('have.css', 'width', '350px').and('have.css', 'height', '99px');
-    };
-    static cartCheck() {
-        cy.get(cart).should('be.visible');
-        cy.get(cart).should('contain', 'Cart');
-        cy.get(cart).children().should('have.attr', 'href', 'http://automationpractice.com/index.php?controller=order');
-        cy.get('.shopping_cart > a > span').should('have.attr', 'class');
-    };
-    static phoneCallCheck() {
-        cy.get('.icon-phone').should('be.visible');
-        cy.get('.shop-phone strong').should('contain', '0123-456-789');
-    };
-    static checkMenu() {
-        cy.get(menu).should('be.visible').and('have.length', 3);
-        cy.get(menu).children().eq(0).should('contain', 'Women').and('have.attr', 'href', 'http://automationpractice.com/index.php?id_category=3&controller=category');
-        cy.get(menu).eq(1).should('contain', 'Dresses');
-        cy.get(menu).eq(2).should('contain', 'T-shirts');
-    };
-    static checkLeftColumn() {
-        cy.get('#left_column').should('have.class', 'column');
-        cy.get('#left_column').children().should('have.length', 4).and('have.class', 'block').and('have.attr', 'id');
-    };
     static checkCenterColumn() {
         cy.get('#center_column').should('have.class', 'center_column').and('be.visible');
         cy.get('#center_column').children().should('have.length', 5).and('have.attr', 'class');
@@ -76,18 +45,9 @@ class Tshirts {
         cy.get(footer).children().eq(4).should('have.attr', 'id', 'block_various_links_footer').and('contain', 'Information');
         cy.get(footer).children().eq(5).should('have.class', 'bottom-footer').and('contain', '© 2014').and('have.length', 1);
     };
-    static checkNewsLetterBlockLeft() {
-        cy.get(newsLetterBlockLeft).should('have.class', 'block').and('be.visible').and('contain', 'Newsletter');
-    };
-    static checkBottomFooter() {
-        cy.get('.bottom-footer').should('contain', 'Ecommerce software by PrestaShop™').and('contain', '© 2014');
-        cy.get('.bottom-footer>div').children().should('have.class', '_blank').and('have.attr', 'target', '_blank');
-    };
-
     //end of scenario 1
 
     //scenario 2
-
     static setPriceSliderMinPrice() {
         cy.get(priceSlider).eq(1).trigger('mousedown', { which: 1 })
         cy.get(priceSlider).eq(0).trigger('mousemove').trigger('mouseup', { force: true });
@@ -115,7 +75,6 @@ class Tshirts {
     //end of scenario 2
 
     //scenario 3
-
     static signInDuringCheckoutFlow(email, password) {      
         cy.get('#email').type(email);
         cy.get('#passwd').type(password);
@@ -176,23 +135,16 @@ class Tshirts {
         cy.get('#layer_cart_product_quantity').should('contain', '2');
         cy.get('.button-medium').contains('Proceed to checkout').click();
     };
-    static logOut() {
-        cy.get('.logout').click({ force: true });
-    };
-    static getUser() {
-        users = require("C:/Users/anyavorskyi/Desktop/cypress-cucumber-autonation/users.json");
-        return users[0];
-    };
     static checkoutUserLoggedOutBankwire() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
-        Tshirts.signInDuringCheckoutFlow(Tshirts.getUser().email, Tshirts.getUser().password);
+        Tshirts.signInDuringCheckoutFlow(MainClass.getUser().email, MainClass.getUser().password);
         cy.get('.cart_navigation > .button > span').click();
         Tshirts.termsOfServiceConfirmation();
         Tshirts.bankwirePaymentMethod('Your order on My Store is complete');
     };
     static checkoutUserLoggedOutCheck() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
-        Tshirts.signInDuringCheckoutFlow(Tshirts.getUser().email, Tshirts.getUser().password);
+        Tshirts.signInDuringCheckoutFlow(MainClass.getUser().email, MainClass.getUser().password);
         cy.get('.cart_navigation > .button > span').click();
         Tshirts.termsOfServiceConfirmation();
         Tshirts.checkPaymentMethod('Your check must include:');
@@ -218,7 +170,6 @@ class Tshirts {
     };
     static checkoutCreateNewAccountCheck() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
-       
         Tshirts.createNewAccountDuringCheckoutFlow();
         cy.get('.cart_navigation > .button > span').click();
         Tshirts.termsOfServiceConfirmation();
@@ -232,7 +183,7 @@ class Tshirts {
     };
     static checkoutTermsOfServiceNotChecked() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
-        Tshirts.signInDuringCheckoutFlow(Tshirts.getUser().email, Tshirts.getUser().password);
+        Tshirts.signInDuringCheckoutFlow(MainClass.getUser().email, MainClass.getUser().password);
         cy.get('.cart_navigation > .button > span').click();
         cy.get('.cart_navigation > .button > span').click();
         cy.get('.fancybox-error').should('be.visible').and('contain', 'You must agree to the terms of service before continuing.');
@@ -240,7 +191,7 @@ class Tshirts {
     };
     static checkoutReadingTermsOfService() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
-        Tshirts.signInDuringCheckoutFlow(Tshirts.getUser().email, Tshirts.getUser().password);
+        Tshirts.signInDuringCheckoutFlow(MainClass.getUser().email, MainClass.getUser().password);
         cy.get('.cart_navigation > .button > span').click();
         cy.get('.iframe').click();
         cy.get('.fancybox-opened').children().should('be.visible');
@@ -248,7 +199,7 @@ class Tshirts {
     };
     static checkoutUserexistingEmailAccountCreation() {
         cy.get('.standard-checkout').contains('Proceed to checkout').click({force: true});
-        cy.get('#email_create').type(Tshirts.getUser().email);
+        cy.get('#email_create').type(MainClass.getUser().email);
         cy.get('#SubmitCreate').contains('Create an account').click({force: true});
         cy.wait(8000);
         cy.get('#create_account_error').should('be.visible').and('contain', 'An account using this email address has already been registered.');

@@ -1,6 +1,4 @@
-import { expect } from "chai";
-import { should } from "chai";
-import Tshirts from '../pages/tShirts.po';
+import MainClass from "./mainClass.po";
 const banner = ".rte";
 const sorterDropDown = '.selector';
 const product = '.replace-2x';
@@ -10,16 +8,14 @@ const header = '.cat-name';
 const navBar = '.breadcrumb';
 const priceSlider = '.ui-slider-handle';
 const accountButton = '.account';
-const logo = '.logo';
-const menu = '.sf-menu > li';
-const cart = '.shopping_cart';
-const newsLetterBlockLeft = '#newsletter_block_left';
+
 
 class SummerDresses {
     static goToSummerDressesPage() {
         cy.visit('/');
         cy.xpath('.//*[@title="Summer Dresses"]').eq(0).click({ force: true });
     };
+
     //scenario 1
     static bannerCheck() {
         cy.get(banner).should('contain', 'Short dress, long dress, silk dress, printed dress, you will find the perfect dress for summer.')
@@ -31,48 +27,11 @@ class SummerDresses {
     static navBarCheck() {
         cy.get(navBar).should('contain', 'Summer Dresses');
     }
-    static logoCheck() {
-        cy.get(logo).should('be.visible');
-    }
-    static cartCheck() {
-        cy.get(cart).should('be.visible');
-        cy.get(cart).should('contain', 'Cart')
-    }
-    static phoneCallCheck() {
-        cy.get('.shop-phone').should('be.visible');
-        cy.get('.shop-phone strong').should('contain', '0123-456-789');
-    }
-    static checkMenu() {
-        cy.get(menu).should('be.visible');
-        cy.get(menu).eq(0).should('contain', 'Women');
-       // cy.get(menu).eq(1).should('have.class', 'sf-with-ul');      //should work but it doesn't
-        cy.get(menu).should('have.length', 3);                                      
-    }
-
-    static checkLeftColumn() {
-        cy.get('#left_column').should('have.class', 'column')
-    }
-
     static checkCenterColumn() {
         cy.get('#center_column').should('have.class', 'center_column');
         cy.get('#center_column').should('be.visible');
         cy.get('#center_column .ajax_block_product').should('have.length', 3);                                 
     }
-
-    static checkNewsLetterBlockLeft() {
-        cy.get(newsLetterBlockLeft).should('have.class', 'block').and('be.visible').and('contain', 'Newsletter');
-    }
-
-    static checkFooter() {
-        cy.get('#footer').should('have.class', 'container').and('be.visible').and('contain', 'Newsletter');
-        cy.get('.toggle-footer');
-        cy.get('.toggle-footer').should('have.length', 4);                               
-    }
-
-    static checkBottomFooter() {
-        cy.get('.bottom-footer').should('contain', 'Ecommerce software by PrestaShop™').and('contain', '© 2014');
-    }
-    
     //end of scenario 1
 
     //scenario 2
@@ -167,12 +126,6 @@ class SummerDresses {
         cy.get(product).eq(0).click({ force: true });
         cy.get(wishList).click({ force: true });
         cy.get(errorBox).should('contain', string);
-    }
-    static logIn() {
-        cy.get('.login').click({ force: true });
-        cy.get('#email').type(Tshirts.getUser().email);
-        cy.get('#passwd').type(Tshirts.getUser().password);
-        cy.get('.icon-lock').click(); 
     }
     static wishlistPageCheck() {
         cy.get(accountButton).click({ force: true });

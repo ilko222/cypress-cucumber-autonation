@@ -17,36 +17,36 @@ Feature: Go to the Summer Dresses Page and check the layout
         Then Check the footer
         Then Check the bottom footer
 
-    Scenario: 2 Check the sorting functionality
-        When I select in stock option in the sorter dropdown
-        Then In stock items are visible
-        When I set price slider in minimal price
-        Then There are no products message is visible
-        When I set specific color in the filter section
-        Then Items with specific colour are visible
-        When I set polyester compositions in the filter section
-        Then Items with polyester composition are visible
-        When I set viscose compositions in the filter section
-        Then Items with viscose composition are visible
-        When I set casual style in the filter section
-        Then Items with casual style are visible
-        When I set girly style in the filter section
-        Then Items with girly style are visible
-        When I set short dress in properties in the filter section
-        Then Items with short dresses property are visible
-        When I set in stock in availability in the filter section
-        Then Items with in stock availability are visible
-        When I click on our stores in the information section
-        Then I go to our stores page
-        When I click on all specials in the specials section
-        Then I go to specials page
+    # Scenario: 2 Check the sorting functionality
+    #     When I select in stock option in the sorter dropdown
+    #     Then In stock items are visible
+    #     When I set price slider in minimal price
+    #     Then There are no products message is visible
+    #     When I set specific color in the filter section
+    #     Then Items with specific colour are visible
+    #     When I set polyester compositions in the filter section
+    #     Then Items with polyester composition are visible
+    #     When I set viscose compositions in the filter section
+    #     Then Items with viscose composition are visible
+    #     When I set casual style in the filter section
+    #     Then Items with casual style are visible
+    #     When I set girly style in the filter section
+    #     Then Items with girly style are visible
+    #     When I set short dress in properties in the filter section
+    #     Then Items with short dresses property are visible
+    #     When I set in stock in availability in the filter section
+    #     Then Items with in stock availability are visible
+    #     When I click on our stores in the information section
+    #     Then I go to our stores page
+    #     When I click on all specials in the specials section
+    #     Then I go to specials page
 
-    Scenario: 3 Check the Add To Wishlist functionality
-         Then I verify Add To Wishlist functionality user logged out
-         When The user is logged in
-         When I navigate to the Woman Summer Dresses page
-         Then I verify Add To Wishlist functionality user logged in
-         When I navigate to the Woman Summer Dresses page
-         Then I check the Wishlist page
-         Then I edit the Wishlist
-         Then I check the Wishlist
+    # Scenario: 3 Check the Add To Wishlist functionality
+    #      Then I verify Add To Wishlist functionality user logged out
+    #      When The user is logged in
+    #      When I navigate to the Woman Summer Dresses page
+    #      Then I verify Add To Wishlist functionality user logged in
+    #      When I navigate to the Woman Summer Dresses page
+    #      Then I check the Wishlist page
+    #      Then I edit the Wishlist
+    #      Then I check the Wishlist

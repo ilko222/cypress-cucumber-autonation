@@ -1,5 +1,6 @@
 import { use } from 'chai'
 import {Then} from 'cypress-cucumber-preprocessor/steps'
+import MainClass from '../pages/mainClass.po'
 import MainPage from '../pages/mainPage.po'
 import SearchPage from '../pages/searchPage.po'
 import SummerDresses from '../pages/summerDresses.po'
@@ -38,23 +39,23 @@ Then('Check the navigation bar', () => {
 })
 
 Then('Check the logo', () => {
-    SummerDresses.logoCheck();
+    MainClass.logoCheck();
 })
 
 Then('Check the cart', () => {
-    SummerDresses.cartCheck();
+    MainClass.cartCheck();
 })
 
 Then('Check the phone call icon', () => {
-    SummerDresses.phoneCallCheck();
+    MainClass.phoneCallCheck();
 })
 
 Then('Check the menu', () => {
-    SummerDresses.checkMenu();
+    MainClass.checkMenu();
 })
 
 Then('Check the left column', () => {
-    SummerDresses.checkLeftColumn();
+    MainClass.checkLeftColumn();
 })
 
 Then('Check the center column', () => {
@@ -62,15 +63,15 @@ Then('Check the center column', () => {
 })
 
 Then('Check the left news letter block', () => {
-    SummerDresses.checkNewsLetterBlockLeft();
+    MainClass.checkNewsLetterBlockLeft();
 })
 
 Then('Check the footer', () => {
-    SummerDresses.checkFooter();
+    MainClass.checkFooter();
 })
 
 Then('Check the bottom footer', () => {
-    SummerDresses.checkBottomFooter();
+    MainClass.checkBottomFooter();
 })
 
 //end of scenario 1
@@ -149,23 +150,23 @@ Then('Check the tshirts navigation bar', () => {
 })
 
 Then('Check the tshirts logo', () => {
-    Tshirts.logoCheck();
+    MainClass.logoCheck();
 })
 
 Then('Check the tshirts cart', () => {
-    Tshirts.cartCheck();
+    MainClass.cartCheck();
 })
 
 Then('Check the tshirts phone call icon', () => {
-    Tshirts.phoneCallCheck();
+    MainClass.phoneCallCheck();
 })
 
 Then('Check the tshirts menu', () => {
-    Tshirts.checkMenu();
+    MainClass.checkMenu();
 })
 
 Then('Check the tshirts left column', () => {
-    Tshirts.checkLeftColumn();
+    MainClass.checkLeftColumn();
 })
 
 Then('Check the tshirts center column', () => {
@@ -173,15 +174,15 @@ Then('Check the tshirts center column', () => {
 })
 
 Then('Check the tshirts left news letter block', () => {
-    Tshirts.checkNewsLetterBlockLeft();
+    MainClass.checkNewsLetterBlockLeft();
 })
 
 Then('Check the tshirts footer', () => {
-    Tshirts.checkFooter();
+    MainClass.checkFooter();
 })
 
 Then('Check the tshirts bottom footer', () => {
-    Tshirts.checkBottomFooter();
+    MainClass.checkBottomFooter();
 })
 //end of scenario 1
 
@@ -223,11 +224,11 @@ Then('Check the checkout flow with new account creation check', () =>{
 })
 
 Then('Check the checkout flow for the user with wrong password', () => {
-    Tshirts.checkoutWrongCredentials(Tshirts.getUser().email, Tshirts.getUser().password + '///', 'Authentication failed.');
+    Tshirts.checkoutWrongCredentials(MainClass.getUser().email, MainClass.getUser().password + '///', 'Authentication failed.');
 })
 
 Then('Check the checkout flow for the user with wrong email', () => {
-    Tshirts.checkoutWrongCredentials(Tshirts.getUser().email + '///', Tshirts.getUser().password, 'Invalid email address.');
+    Tshirts.checkoutWrongCredentials(MainClass.getUser().email + '///', MainClass.getUser().password, 'Invalid email address.');
 })
 
 Then('Check the checkout flow with terms of service not checked', () => {
