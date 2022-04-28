@@ -5,6 +5,7 @@ import DressesSummer from '../pages/dressesSummer.po'
 import LogIn from '../pages/logIn.po'
 import NewsLetters from '../pages/subscription.po'
 import SortingFilter from '../pages/categoryFiltersAndSorting.po'
+import Checkout from '../pages/checkOut.po'
 
 Then('I check the Main Page', () => {
     cy.url()
@@ -109,4 +110,17 @@ Then('I should see items with Viscose composition', () =>{
 Then('I should see available items those are in stock of this category', () =>{
     cy.wait(3000);
     cy.get('.alert').should('contain', 'There are no products.');
+})
+Then('I should see items with Grid View', ()=>{
+    cy.get('#grid').should('have.class', 'selected');
+})
+Then('I should be represented with items with List option', ()=>{
+    cy.get('#list').should('have.class', 'selected');
+})
+Then('I should be redirected to the Sign in page', ()=>{
+    cy.get('li[class="step_current second"]').should('be.visible');
+})
+Then('I should see delivery and billing addresses', ()=>{
+    Checkout.checkAdress();
+
 })

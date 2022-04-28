@@ -5,6 +5,7 @@ import DressesSummer from '../pages/dressesSummer.po'
 import LogIn from '../pages/logIn.po'
 import NewsLetters from '../pages/subscription.po'
 import SortingFilter from '../pages/categoryFiltersAndSorting.po'
+import Checkout from '../pages/checkOut.po'
 
 Given('I navigate to the Main Page', () => {
     cy.visit('/');
@@ -124,4 +125,20 @@ When('I click on View, option Grid', ()=>{
 })
 When('I click on List View', ()=>{
     cy.get('#list').click();
+})
+Given('I navigate to the website, main page', ()=>{
+    cy.visit('/');
+})
+When('I add the item to the shopping cart from the main page', ()=>{
+    Checkout.checkoutNotLoggedIn();
+})
+And('I proceed to the Checkout page', ()=>{
+    cy.get('[class="button btn btn-default standard-checkout button-medium"]').click();
+
+})
+When('I add the item from the main page and click on Proceed to CheckOut page', ()=>{
+    Checkout.checkOutLoggedIn();
+})
+And('I should enter valid credentials on Sign In page', ()=>{
+    Checkout.logIn();
 })
