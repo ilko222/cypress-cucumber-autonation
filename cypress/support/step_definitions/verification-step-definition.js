@@ -122,5 +122,12 @@ Then('I should be redirected to the Sign in page', ()=>{
 })
 Then('I should see delivery and billing addresses', ()=>{
     Checkout.checkAdress();
-
+})
+Then('I should be able to see two types of payment', ()=>{
+    cy.get('.bankwire').should('contain', 'Pay by bank wire');
+    cy.get('.cheque').should('contain', 'Pay by check');  
+})
+Then('I should be presented with conformation of my order', ()=>{
+    cy.get('button[class="button btn btn-default button-medium"]').click();
+    cy.get('h1[class="page-heading"]').should('contain', 'Order confirmation');
 })

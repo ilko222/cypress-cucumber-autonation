@@ -16,14 +16,16 @@ class Checkout{
         cy.fixture('credentials').then(userCred => {
             cy.get(emailField).type(userCred.email);
             cy.get(passwordField).type(userCred.pass);
+            cy.wait(1500);
             cy.get('button[id="SubmitLogin"]').click();
 
         })
     }
     static checkAdress(){
         cy.get('#address_delivery').should('have.class', 'address item box');
-        cy.get('#address_delivery').find('.address_firstname address_lastname').should('contain', 'kate pesch');
+        cy.get('#address_invoice').should('contain', 'kate pesch');
         cy.get('button[name="processAddress"]').click();
+        
     }
 
 }

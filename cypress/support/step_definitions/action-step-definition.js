@@ -142,3 +142,11 @@ When('I add the item from the main page and click on Proceed to CheckOut page', 
 And('I should enter valid credentials on Sign In page', ()=>{
     Checkout.logIn();
 })
+When('I click on Proceed to Checkout, I accept the terms of service', ()=>{
+    cy.get('input[id="cgv"]').check();
+    cy.wait(1500);
+    cy.get('button[name="processCarrier"]').click();
+})
+When('I click on Payment bank wire', ()=>{
+    cy.get('.bankwire').click();
+})
