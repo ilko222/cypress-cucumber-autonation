@@ -148,5 +148,14 @@ When('I click on Proceed to Checkout, I accept the terms of service', ()=>{
     cy.get('button[name="processCarrier"]').click();
 })
 When('I click on Payment bank wire', ()=>{
-    cy.get('.bankwire').click();
+    cy.get('.bankwire').click(); 
+}) 
+When('I add the item on the main page and Proceed to CheckOut', ()=>{
+    Checkout.checkOutLoggedIn();
+    Checkout.logIn();
+})
+And("I don't tick the option Turms of service", ()=>{
+    cy.get('button[class="button btn btn-default button-medium"]').click();
+    cy.wait(1500);
+    cy.get('button[name="processCarrier"]').click();
 })

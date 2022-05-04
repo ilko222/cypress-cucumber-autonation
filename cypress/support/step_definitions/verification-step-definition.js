@@ -131,3 +131,6 @@ Then('I should be presented with conformation of my order', ()=>{
     cy.get('button[class="button btn btn-default button-medium"]').click();
     cy.get('h1[class="page-heading"]').should('contain', 'Order confirmation');
 })
+Then('I should see the error pop-up', ()=>{
+    cy.get('div>p[class="fancybox-error"]').should('contain', 'You must agree to the terms of service before continuing.');
+})

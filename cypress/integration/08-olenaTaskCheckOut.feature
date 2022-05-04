@@ -17,4 +17,7 @@ Feature: User proseeds to Checkout
     When I click on Payment bank wire
     Then I should be presented with conformation of my order
 
-    
+    Scenario: 3 Check process Checkout while user is logged in but doesn't agree with Turms of service 
+    When I add the item on the main page and Proceed to CheckOut
+    And I don't tick the option Turms of service
+    Then I should see the error pop-up 
