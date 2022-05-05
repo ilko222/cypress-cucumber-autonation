@@ -24,8 +24,7 @@ class Checkout{
     static checkAdress(){
         cy.get('#address_delivery').should('have.class', 'address item box');
         cy.get('#address_invoice').should('contain', 'kate pesch');
-        cy.get('button[name="processAddress"]').click();
-        
+        cy.get('button[name="processAddress"]').click();   
     }
 
 }

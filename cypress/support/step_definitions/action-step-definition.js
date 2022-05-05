@@ -159,3 +159,9 @@ And("I don't tick the option Turms of service", ()=>{
     cy.wait(1500);
     cy.get('button[name="processCarrier"]').click();
 })
+When('I add the product on the main page and Proceed to CheckOut', ()=>{
+    Checkout.checkOutLoggedIn();
+})
+And('On Summery step I click on Continue shopping', ()=>{
+    cy.get('p>a[class="button-exclusive btn btn-default"]').click();
+})

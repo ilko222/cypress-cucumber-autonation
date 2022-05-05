@@ -21,3 +21,9 @@ Feature: User proseeds to Checkout
     When I add the item on the main page and Proceed to CheckOut
     And I don't tick the option Turms of service
     Then I should see the error pop-up 
+
+    Scenario: 4 Check process CheckOut while user is logged in and interrupts it by clicking on Continue shopping 
+    When I add the product on the main page and Proceed to CheckOut
+    And On Summery step I click on Continue shopping
+    Then I should be on category page 
+

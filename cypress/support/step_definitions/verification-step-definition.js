@@ -134,3 +134,6 @@ Then('I should be presented with conformation of my order', ()=>{
 Then('I should see the error pop-up', ()=>{
     cy.get('div>p[class="fancybox-error"]').should('contain', 'You must agree to the terms of service before continuing.');
 })
+Then('I should be on category page', ()=>{
+    cy.get('#header_logo').should('be.visible');
+})
