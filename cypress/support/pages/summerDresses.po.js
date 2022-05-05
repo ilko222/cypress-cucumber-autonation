@@ -44,7 +44,6 @@ class SummerDresses {
             cy.log('index ' + index + ' : ' + $el.text())
             cy.get($el).should('contain', 'In stock')
         });
-        SummerDresses.goToSummerDressesPage();
     }
     static setPriceSliderMinPrice() {
         cy.get(priceSlider).eq(1).trigger('mousedown', { which: 1 })
@@ -60,64 +59,55 @@ class SummerDresses {
         cy.get('#ul_layered_id_attribute_group_3 li').contains('Black').click();        
     }
     static checkColorSorter() {
-        cy.get(".color_to_pick_list").as('color').should('have.length', 3); 
-        SummerDresses.goToSummerDressesPage();    
+        cy.get(".color_to_pick_list").as('color').should('have.length', 3);    
     }
     static setCompositionSorterPolyester() {
         cy.get('#layered_id_feature_1').click();       
     }
     static checkCompositionSorterPolyester() {
-        cy.get('.product_img_link').should('have.length', 2);
-        SummerDresses.goToSummerDressesPage();  
+        cy.get('.product_img_link').should('have.length', 2); 
     }
     static setCompositionSorterViscose() {
         cy.get('#layered_id_feature_3').click();       
     }
     static checkCompositionSorterViscose() {
-        cy.get('.product_img_link').should('have.length', 1);
-        SummerDresses.goToSummerDressesPage();         
+        cy.get('.product_img_link').should('have.length', 1);         
     }
     static setStyleSorterCasual() {
         cy.get('#layered_id_feature_11').click();       
     }
     static checkStyleSorterCasual() {
-        cy.get('.product_img_link').should('have.length', 1);
-        SummerDresses.goToSummerDressesPage();     
+        cy.get('.product_img_link').should('have.length', 1);     
     }
     static setStyleSorterGirly() {
         cy.get('#layered_id_feature_13').click();       
     }
     static checkStyleSorterGirly() {
-        cy.get('.product_img_link').should('have.length', 2);
-        SummerDresses.goToSummerDressesPage();         
+        cy.get('.product_img_link').should('have.length', 2);         
     }
     static setPropertySorterShortDress() {
         cy.get('#layered_id_feature_19').click();       
     }
     static checkPropertySorterShortDress() {
-        cy.get('.product_img_link').should('have.length', 3);
-        SummerDresses.goToSummerDressesPage();        
+        cy.get('.product_img_link').should('have.length', 3);        
     }
     static setAvailabilitySorterInStock() {
         cy.get('#layered_quantity_1').click();       
     }
     static checkAvailabilitySorterInStock() {
-        cy.get('.product_img_link').should('have.length', 3);
-        SummerDresses.goToSummerDressesPage();     
+        cy.get('.product_img_link').should('have.length', 3);     
     }
     static goToOurStoresPage() {
         cy.get('.block_content').contains('Our stores').click();       
     }
     static checkOurStoresPageUrl() {
-        cy.url().should('contain', 'stores');
-        SummerDresses.goToSummerDressesPage();    
+        cy.url().should('contain', 'stores');    
     }
     static goToSpecialsPage() {
         cy.get('.btn').contains('All specials').click();       
     }
     static checkSpecialsPage() {
-        cy.url().should('contain', 'prices-drop');
-        SummerDresses.goToSummerDressesPage();     
+        cy.url().should('contain', 'prices-drop');     
     }
     //end of scenario 2
 
