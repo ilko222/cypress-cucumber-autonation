@@ -143,9 +143,7 @@ And('I should enter valid credentials on Sign In page', ()=>{
     Checkout.logIn();
 })
 When('I click on Proceed to Checkout, I accept the terms of service', ()=>{
-    cy.get('input[id="cgv"]').check();
-    cy.wait(1500);
-    cy.get('button[name="processCarrier"]').click();
+   Checkout.proceedToCheckOut();
 })
 When('I click on Payment bank wire', ()=>{
     cy.get('.bankwire').click(); 
@@ -164,4 +162,11 @@ When('I add the product on the main page and Proceed to CheckOut', ()=>{
 })
 And('On Summery step I click on Continue shopping', ()=>{
     cy.get('p>a[class="button-exclusive btn btn-default"]').click();
+})
+When('I add the item to Shopping card, proceed to CheckOut', ()=>{
+    Checkout.checkOutLoggedIn();
+    Checkout.logIn();
+})
+And('On Payment step I log-out', ()=>{
+    cy.get('div>a[class="logout"]').click();
 })

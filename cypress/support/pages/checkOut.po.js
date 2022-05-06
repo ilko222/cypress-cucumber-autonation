@@ -26,6 +26,11 @@ class Checkout{
         cy.get('#address_invoice').should('contain', 'kate pesch');
         cy.get('button[name="processAddress"]').click();   
     }
+    static proceedToCheckOut(){
+        cy.get('input[id="cgv"]').check();
+        cy.wait(1500);
+        cy.get('button[name="processCarrier"]').click();
+    }
 
 }
 export default Checkout

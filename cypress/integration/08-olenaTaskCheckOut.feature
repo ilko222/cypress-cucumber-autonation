@@ -22,8 +22,13 @@ Feature: User proseeds to Checkout
     And I don't tick the option Turms of service
     Then I should see the error pop-up 
 
-    Scenario: 4 Check process CheckOut while user is logged in and interrupts it by clicking on Continue shopping 
+    Scenario: 4 Check process CheckOut while user isn't logged in and interrupts it by clicking on Continue shopping 
     When I add the product on the main page and Proceed to CheckOut
     And On Summery step I click on Continue shopping
     Then I should be on category page 
+
+    Scenario: 5 Check process CheckOut when user is logged out on last step of it
+    When I add the item to Shopping card, proceed to CheckOut
+    And On Payment step I log-out
+    Then Shopping Cart should be empty 
 

@@ -137,3 +137,6 @@ Then('I should see the error pop-up', ()=>{
 Then('I should be on category page', ()=>{
     cy.get('#header_logo').should('be.visible');
 })
+Then('Shopping Cart should be empty',()=>{
+    cy.get('p[class="alert alert-warning"]').should('contain', 'Your shopping cart is empty.');
+})
