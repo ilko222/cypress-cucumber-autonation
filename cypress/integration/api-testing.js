@@ -19,7 +19,7 @@ describe("post request", () => {
 })
 
 describe("get request", () => {
-    it("validate status code", () => {
+    it("get first 20 objects", () => {
         cy.request({
             method: "GET",
             url: "https://restful-booker.herokuapp.com/booking",
@@ -37,9 +37,39 @@ describe("get request", () => {
             expect(response.status).to.eql(200);
         })
     })
+
+    it("get and validate object properties", () => {
+        let i = 10;
+        cy.request({
+            method: "GET",
+            url: "https://restful-booker.herokuapp.com/booking/" + i,
+            headers: {
+                accept: "application/json"
+            }
+        }).then(response => {
+            let body = JSON.parse(JSON.stringify(response.body));
+            cy.log(body);
+            cy.log(body.bookingdates);
+            expect(body).has.property("firstname", "Mark");
+            expect(body).has.property("lastname", "Jackson");
+            expect(response.status).to.eql(200);
+        })
+    })
+
+    it("get and validate several objects properties", () => {
+        for (let i = 10; i < 15; i++){
+            cy.request({
+                method: "GET",
+                url: "https://restful-booker.herokuapp.com/booking/" + i,
+                headers: {
+                    accept: "application/json"
+                }
+            }).then(response => {
+                let body = JSON.parse(JSON.stringify(response.body));
+                cy.log(body);
+                cy.log(i, body.firstname, body.lastname, body.totalprice, body.depositpaid, body.bookingdates, body.additionalneeds);
+                expect(response.status).to.eql(200);
+            })
+        }
+    })
 })
-
-
-
-
-
