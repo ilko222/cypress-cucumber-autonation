@@ -6,6 +6,9 @@ const newsLetterBlockLeft = '#newsletter_block_left';
 const footer = '#footer  > .row';
 
 class MainClass {
+    static getId() {
+        
+    };
     static getUser() {
         users = require("C:/Users/anyavorskyi/Desktop/cypress-cucumber-autonation/users.json");
         return users[0];
