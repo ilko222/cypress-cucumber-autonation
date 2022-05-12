@@ -21,7 +21,7 @@ describe("post request", () => {
 })
 
 describe("get request", () => {
-    it("get first 20 objects", () => {
+    it("get first 20 booking id's", () => {
         cy.request({
             method: "GET",
             url: "https://restful-booker.herokuapp.com/booking",
@@ -31,48 +31,90 @@ describe("get request", () => {
         }).then(response => {
             let i = 0;
             while (i <= 20) {
-                console.log(i);
-                i = i + 1;
                 let body = response.body[i];
                 cy.log(body);
+                i = i + 1;
             }
             expect(response.status).to.eql(200);
-
         })
     })
 
     it("get and validate object properties", () => {
-        let i = 910;
         cy.request({
             method: "GET",
-            url: "https://restful-booker.herokuapp.com/booking/" + i,
+            url: "https://restful-booker.herokuapp.com/booking",
             headers: {
                 accept: "application/json"
             }
         }).then(response => {
-            let body = JSON.parse(JSON.stringify(response.body));
-            cy.log(body.bookingdates, body.firstname, body.lastname);
-            expect(body).has.property("firstname");
-            expect(body).has.property("lastname");
+            let body = response.body[0];
+            cy.log(body);
+            cy.wrap(body.bookingid).as('id');
             expect(response.status).to.eql(200);
-        })
-    })
-
-    it("get and validate several objects properties", () => {
-        for (let i = 910; i < 915; i++) {
+        });
+        cy.get('@id').then((id) => {
             cy.request({
                 method: "GET",
-                url: "https://restful-booker.herokuapp.com/booking/" + i,
+                url: "https://restful-booker.herokuapp.com/booking/" + id,
                 headers: {
                     accept: "application/json"
                 }
             }).then(response => {
                 let body = JSON.parse(JSON.stringify(response.body));
-                cy.log(body);
-                cy.log(i, body.firstname, body.lastname, body.totalprice, body.depositpaid, body.bookingdates, body.additionalneeds);
+                cy.log(body.bookingdates, body.firstname, body.lastname);
+                expect(body).has.property("firstname");
+                expect(body).has.property("lastname");
                 expect(response.status).to.eql(200);
             })
-        }
+        })
+
+    })
+
+    it("get and validate several objects properties", () => {
+        cy.request({
+            method: "GET",
+            url: "https://restful-booker.herokuapp.com/booking",
+            headers: {
+                accept: "application/json"
+            }
+        }).then(response => {
+            let i = 0;
+            while (i <= 20) {
+                i = i + 1;
+                let body = response.body[i];
+                cy.log(body);
+                cy.wrap(body.bookingid).as('id');
+                cy.get('@id').then((id) => {
+                    cy.request({
+                        method: "GET",
+                        url: "https://restful-booker.herokuapp.com/booking/" + id,
+                        headers: {
+                            accept: "application/json"
+                        }
+                    }).then(response => {
+                        let body = JSON.parse(JSON.stringify(response.body));
+                        cy.log(body);
+                        cy.log(i, body.firstname, body.lastname, body.totalprice, body.depositpaid, body.bookingdates, body.additionalneeds);
+                        expect(response.status).to.eql(200);
+                    })
+                });
+            }
+            expect(response.status).to.eql(200);
+        })
+        // for (let i = 910; i < 915; i++) {
+        //     cy.request({
+        //         method: "GET",
+        //         url: "https://restful-booker.herokuapp.com/booking/" + i,
+        //         headers: {
+        //             accept: "application/json"
+        //         }
+        //     }).then(response => {
+        //         let body = JSON.parse(JSON.stringify(response.body));
+        //         cy.log(body);
+        //         cy.log(i, body.firstname, body.lastname, body.totalprice, body.depositpaid, body.bookingdates, body.additionalneeds);
+        //         expect(response.status).to.eql(200);
+        //     })
+        // }
     })
 
     describe("post/put requests", () => {
