@@ -140,3 +140,6 @@ Then('I should be on category page', ()=>{
 Then('Shopping Cart should be empty',()=>{
     cy.get('p[class="alert alert-warning"]').should('contain', 'Your shopping cart is empty.');
 })
+Then('I should be able to see this comment when I make one step back', ()=>{
+    
+})

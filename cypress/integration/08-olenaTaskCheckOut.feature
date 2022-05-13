@@ -30,5 +30,9 @@ Feature: User proseeds to Checkout
     Scenario: 5 Check process CheckOut when user is logged out on last step of it
     When I add the item to Shopping card, proceed to CheckOut
     And On Payment step I log-out
-    Then Shopping Cart should be empty 
+    Then Shopping Cart should be empty
+
+    Scenario: 6 Check process CheckOut with leaving user's comment
+    When I proceed to Checkout with the item in the shopping cart and leave the message in the field for comments
+    Then I should be able to see this comment when I make one step back 
 

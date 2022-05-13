@@ -170,3 +170,8 @@ When('I add the item to Shopping card, proceed to CheckOut', ()=>{
 And('On Payment step I log-out', ()=>{
     cy.get('div>a[class="logout"]').click();
 })
+When('I proceed to Checkout with the item in the shopping cart and leave the message in the field for comments', ()=>{
+    Checkout.checkOutLoggedIn();
+    Checkout.logIn();
+    cy.get('[class="form-control"]').type('as quickly as possible');
+})
