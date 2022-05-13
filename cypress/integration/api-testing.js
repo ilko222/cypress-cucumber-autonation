@@ -1,6 +1,5 @@
 
 describe("post request", () => {
-
     it("validate status code", () => {
         cy.request({
             method: "POST",
@@ -101,20 +100,6 @@ describe("get request", () => {
             }
             expect(response.status).to.eql(200);
         })
-        // for (let i = 910; i < 915; i++) {
-        //     cy.request({
-        //         method: "GET",
-        //         url: "https://restful-booker.herokuapp.com/booking/" + i,
-        //         headers: {
-        //             accept: "application/json"
-        //         }
-        //     }).then(response => {
-        //         let body = JSON.parse(JSON.stringify(response.body));
-        //         cy.log(body);
-        //         cy.log(i, body.firstname, body.lastname, body.totalprice, body.depositpaid, body.bookingdates, body.additionalneeds);
-        //         expect(response.status).to.eql(200);
-        //     })
-        // }
     })
 
     describe("post/put requests", () => {
@@ -232,3 +217,140 @@ describe("get request", () => {
         })
     })
 })
+
+describe("delete request", () => {
+    it("delete an object", () => {
+        cy.request({
+            method: "POST",
+            url: "https://restful-booker.herokuapp.com/auth",
+            headers: {
+                accept: "application/json"
+            },
+            body: {
+                username: "admin",
+                password: "password123"
+            }
+        }).then(response => {
+            let body = response.body
+            cy.log(body);
+            expect(response.status).to.eql(200);
+            cy.wrap(body.token).as('newToken');
+        })
+        cy.request({
+            method: "POST",
+            url: "https://restful-booker.herokuapp.com/booking",
+            headers: {
+                accept: "application/json"
+            },
+            body: {
+                "firstname": "Jabba",
+                "lastname": "Hutt",
+                "totalprice": 1000000000,
+                "depositpaid": true,
+                "bookingdates": {
+                    "checkin": "2234-01-01",
+                    "checkout": "2235-01-01"
+                },
+                "additionalneeds": "Dinner"
+            }
+        }).then(response => {
+            let body = JSON.parse(JSON.stringify(response.body));
+            expect(body.booking).has.property("firstname", "Jabba");
+            expect(body.booking).has.property("lastname", "Hutt");
+            expect(response.status).to.eql(200);
+            cy.log(body.bookingid);
+            cy.wrap(body.bookingid).as('newId')
+        })
+        cy.get('@newToken').then((newToken) => {
+            cy.get('@newId').then((newId) => {
+                cy.request({
+                    method: "DELETE",
+                    url: "https://restful-booker.herokuapp.com/booking/" + newId,
+                    headers: {
+                        accept: "application/json",
+                        cookie: "token=" + newToken
+                    }
+                }).then(response => {
+                    expect(response.status).to.eql(201);
+                })
+                cy.request({
+                    method: "GET",
+                    url: "https://restful-booker.herokuapp.com/" + newId,
+                    failOnStatusCode: false
+                }).then(response1 => {
+                    expect(response1.status).to.eql(404);
+                })
+            })
+        })
+    })
+})
+
+describe("get booking by name", () => {
+    it("get booking by name", () => {
+        cy.request({
+            method: "POST",
+            url: "https://restful-booker.herokuapp.com/auth",
+            headers: {
+                accept: "application/json"
+            },
+            body: {
+                username: "admin",
+                password: "password123"
+            }
+        }).then(response => {
+            let body = response.body
+            cy.log(body);
+            expect(response.status).to.eql(200);
+            cy.wrap(body.token).as('newToken');
+        })
+        cy.request({
+            method: "POST",
+            url: "https://restful-booker.herokuapp.com/booking",
+            headers: {
+                accept: "application/json"
+            },
+            body: {
+                "firstname": "Jabba",
+                "lastname": "Hutt",
+                "totalprice": 1000000000,
+                "depositpaid": true,
+                "bookingdates": {
+                    "checkin": "2234-01-01",
+                    "checkout": "2235-01-01"
+                },
+                "additionalneeds": "Dinner"
+            }
+        }).then(response => {
+            let body = JSON.parse(JSON.stringify(response.body));
+            expect(body.booking).has.property("firstname", "Jabba");
+            expect(body.booking).has.property("lastname", "Hutt");
+            expect(response.status).to.eql(200);
+            cy.wrap(body.booking.firstname).as('fname');
+            cy.wrap(body.booking.lastname).as('lname');
+            cy.wrap(body.bookingid).as('id');
+        })
+        cy.get('@newToken').then((newToken) => {
+            cy.get('@fname').then((fname) => {
+                cy.get('@lname').then((lname) => {
+                    cy.get('@id').then((id) => {
+                        cy.request({
+                            method: "GET",
+                            url: "https://restful-booker.herokuapp.com/booking?firstname=" + fname + "&lastname=" + lname,
+                            headers: {
+                                accept: "application/json",
+                                cookie: "token=" + newToken
+                            }
+                        }).then(response => {
+                            let body = response.body;
+                            cy.log(body[1]);
+                            cy.log(id);
+                            expect(response.status).to.eql(200);
+                        })
+                    })
+                    
+                })
+            })
+        })
+    })
+})
+
