@@ -4,12 +4,14 @@ const passwordField = 'input[id="passwd"]'
 class Checkout{
     static checkoutNotLoggedIn(){
         cy.xpath('(//*[text()="Add to cart"])[2]').click({force: true});
-        cy.get('div>a[class="btn btn-default button button-medium"]').click();
+        cy.get('a[class="btn btn-default button button-medium"]').click();
     }
     static checkOutLoggedIn(){
         cy.xpath('(//*[text()="Add to cart"])[2]').click({force: true});
-        cy.get('div>a[class="btn btn-default button button-medium"]').click({force: true});
-        cy.get('p>a[class="button btn btn-default standard-checkout button-medium"]').click({force: true});
+        cy.wait(3000);
+        cy.get('a[class="btn btn-default button button-medium"]').click();
+        cy.wait(3000);
+        cy.get('p>a[class="button btn btn-default standard-checkout button-medium"]').click();
 
     }
     static logIn(){
@@ -28,7 +30,7 @@ class Checkout{
     }
     static proceedToCheckOut(){
         cy.get('input[id="cgv"]').check();
-        cy.wait(1500);
+        cy.wait(3000);
         cy.get('button[name="processCarrier"]').click();
     }
 }
