@@ -6,6 +6,7 @@ import LogIn from '../pages/logIn.po'
 import NewsLetters from '../pages/subscription.po'
 import SortingFilter from '../pages/categoryFiltersAndSorting.po'
 import Checkout from '../pages/checkOut.po'
+import BottomMenu from '../pages/bottomMenu.po'
 
 Then('I check the Main Page', () => {
     cy.url()
@@ -143,4 +144,7 @@ Then('Shopping Cart should be empty',()=>{
 Then('I should be able to see this comment when I make one step back', ()=>{
     cy.get('a[class="button-exclusive btn btn-default"]').click();
     cy.get('[class="form-control"]').should('contain', 'as quickly as possible');
+})
+Then('I should see items with reduced price', ()=>{
+    BottomMenu.specialItemsDisc();
 })

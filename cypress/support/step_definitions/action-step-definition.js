@@ -6,6 +6,7 @@ import LogIn from '../pages/logIn.po'
 import NewsLetters from '../pages/subscription.po'
 import SortingFilter from '../pages/categoryFiltersAndSorting.po'
 import Checkout from '../pages/checkOut.po'
+import BottomMenu from '../pages/bottomMenu.po'
 
 Given('I navigate to the Main Page', () => {
     cy.visit('/');
@@ -175,4 +176,7 @@ When('I proceed to Checkout with the item in the shopping cart and leave the mes
     Checkout.logIn();
     cy.get('[class="form-control"]').type('as quickly as possible');
     cy.get('[class="button btn btn-default button-medium"]').click();
+})
+When('I click on Specials category', ()=>{
+    BottomMenu.specialsItems();
 })
