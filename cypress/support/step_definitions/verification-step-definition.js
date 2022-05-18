@@ -146,5 +146,11 @@ Then('I should be able to see this comment when I make one step back', ()=>{
     cy.get('[class="form-control"]').should('contain', 'as quickly as possible');
 })
 Then('I should see items with reduced price', ()=>{
-    BottomMenu.specialItemsDisc();
+    BottomMenu.specialItemsDisc(); 
+})
+Then('I should be presented with message of quantity New products', ()=>{
+    BottomMenu.alertNewPro();
+})
+Then('I should see Best sellers on the website', ()=>{
+    cy.get('h1[class="page-heading product-listing"]').should('contain', 'Best sellers');
 })

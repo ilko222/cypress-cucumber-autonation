@@ -180,3 +180,9 @@ When('I proceed to Checkout with the item in the shopping cart and leave the mes
 When('I click on Specials category', ()=>{
     BottomMenu.specialsItems();
 })
+When('I click on New products', ()=>{
+    BottomMenu.newProd();
+})
+When('I click on Best Sellers on bottom website', ()=>{
+    BottomMenu.bestSellers();
+})

@@ -11,6 +11,18 @@ class BottomMenu{
         cy.get(firstItem).find('.price-percent-reduction').should('contain', '-20%');
         cy.get(secondItem).find('.price-percent-reduction').should('contain', '-5%');
     }
+    static newProd(){
+        cy.get('a[title="New products"]').click();
+        cy.url().should('include', 'new-products');
+    }
+    static alertNewPro(){
+        cy.get('p[class="alert alert-warning"]').should('contain', 'No new products.');
+    }
+    static bestSellers(){
+        cy.get('a[title="Best sellers"]').click();
+        cy.get('.product-container').should('have.length', '7');
+
+    }
 
 }
 export default BottomMenu
