@@ -183,8 +183,8 @@ describe("delete request", () => {
 })
 
 describe("filtering resources", () => {
-    it("return all the posts that belong to the one random user", () => {
-        let num = randomize('0');
+    it("return all the comments that belong to the one random user", () => {
+        let num = randomize('?', 1, {chars: '123456789'});
         cy.request({
             method: "GET",
             url: "https://jsonplaceholder.typicode.com/posts?userId=" + num,
@@ -198,17 +198,17 @@ describe("filtering resources", () => {
                 cy.log(body[i].id);
                 cy.log(body[i].title);
                 cy.log(body[i].body);
-                cy.log(body[i].userId);
+                cy.log(body[i].postId);
             };
             expect(response.status).to.eql(200);
         })
     })
 
     it("return all the photos that belong to the one random user", () => {
-        let num = randomize('0');
+        let num = randomize('?', 2, {chars: '123456789'});
         cy.request({
             method: "GET",
-            url: "https://jsonplaceholder.typicode.com/albums/1" + num + "/photos",
+            url: "https://jsonplaceholder.typicode.com/albums/" + num + "/photos",
             headers: {
                 accept: "application/json; charset=UTF-8"
             }
@@ -221,6 +221,68 @@ describe("filtering resources", () => {
                 cy.log(body[i].url);
                 cy.log(body[i].thumbnailUrl);
                 cy.log(body[i].title);
+            };
+            expect(response.status).to.eql(200);
+        })
+    })
+
+    it("return all the albums that belong to the one random user", () => {
+        let num = randomize('?', 1, {chars: '123456789'});
+        cy.request({
+            method: "GET",
+            url: "https://jsonplaceholder.typicode.com/users/" + num + "/albums",
+            headers: {
+                accept: "application/json; charset=UTF-8"
+            }
+        }).then(response => {
+            let body = response.body
+            cy.log(body)
+            for(let i = 0; i<10; i++){
+                cy.log(body[i].userId)
+                cy.log(body[i].id)
+                cy.log(body[i].title);
+            };
+            expect(response.status).to.eql(200);
+        })
+    })
+
+    it("return all the todos that belong to the one random user", () => {
+        let num = randomize('?', 1, {chars: '123456789'});
+        cy.request({
+            method: "GET",
+            url: "https://jsonplaceholder.typicode.com/users/" + num + "/todos",
+            headers: {
+                accept: "application/json; charset=UTF-8"
+            }
+        }).then(response => {
+            let body = response.body
+            cy.log(body)
+            for(let i = 0; i<10; i++){
+                cy.log(body[i].userId)
+                cy.log(body[i].id)
+                cy.log(body[i].title);
+                cy.log(body[i].completed);
+            };
+            expect(response.status).to.eql(200);
+        })
+    })
+
+    it("return all the posts that belong to the one random user", () => {
+        let num = randomize('?', 1, {chars: '123456789'});
+        cy.request({
+            method: "GET",
+            url: "https://jsonplaceholder.typicode.com/users/" + num + "/posts",
+            headers: {
+                accept: "application/json; charset=UTF-8"
+            }
+        }).then(response => {
+            let body = response.body
+            cy.log(body)
+            for(let i = 0; i<10; i++){
+                cy.log(body[i].userId)
+                cy.log(body[i].id)
+                cy.log(body[i].title);
+                cy.log(body[i].body);
             };
             expect(response.status).to.eql(200);
         })
