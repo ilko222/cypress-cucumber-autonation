@@ -186,3 +186,9 @@ When('I click on New products', ()=>{
 When('I click on Best Sellers on bottom website', ()=>{
     BottomMenu.bestSellers();
 })
+When('I click on Our Store', ()=>{
+    BottomMenu.ourStore();
+})
+When('I click on Contact us page', ()=>{
+    BottomMenu.contactUsBottom();
+})

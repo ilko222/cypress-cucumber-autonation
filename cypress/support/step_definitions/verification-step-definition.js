@@ -154,3 +154,9 @@ Then('I should be presented with message of quantity New products', ()=>{
 Then('I should see Best sellers on the website', ()=>{
     cy.get('h1[class="page-heading product-listing"]').should('contain', 'Best sellers');
 })
+Then('I should be redirected to the Our store page', ()=>{
+    cy.get('[class="breadcrumb clearfix"]').find('[class="navigation_page"]').should('contain', 'Our store(s)!');
+})
+Then('I should be redirected to Contact us page', ()=>{
+    cy.get('#center_column').find('[class="page-heading bottom-indent"]').should('contain', 'Customer service - Contact us');
+})

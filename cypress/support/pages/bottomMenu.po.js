@@ -21,7 +21,14 @@ class BottomMenu{
     static bestSellers(){
         cy.get('a[title="Best sellers"]').click();
         cy.get('.product-container').should('have.length', '7');
-
+    }
+    static ourStore(){
+        cy.get('li>a[title="Our stores"]').click();
+        cy.get('h1[class="page-heading"]').should('contain', 'Our store(s)!');
+    }
+    static contactUsBottom(){
+        cy.get('a[title="Contact us"]').click();
+        cy.url().should('include', 'contact');
     }
 
 }
