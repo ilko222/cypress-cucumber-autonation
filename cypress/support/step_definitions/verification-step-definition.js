@@ -160,3 +160,6 @@ Then('I should be redirected to the Our store page', ()=>{
 Then('I should be redirected to Contact us page', ()=>{
     cy.get('#center_column').find('[class="page-heading bottom-indent"]').should('contain', 'Customer service - Contact us');
 })
+Then('I am redirected to correct page', ()=>{
+    cy.url().should('include', 'id_cms=3');
+})

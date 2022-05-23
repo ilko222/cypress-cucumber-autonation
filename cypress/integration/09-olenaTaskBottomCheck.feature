@@ -21,5 +21,9 @@ Feature: Go to the website and check Bottom Menu Functionality
     When I click on Contact us page
     Then I should be redirected to Contact us page
 
-    
+    Scenario: 5 User navigates to menu on the bottom of the website
+    When I click on Turms of service 
+    Then I am redirected to correct page
+
+
 

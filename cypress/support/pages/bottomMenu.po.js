@@ -30,6 +30,10 @@ class BottomMenu{
         cy.get('a[title="Contact us"]').click();
         cy.url().should('include', 'contact');
     }
+    static termsAndCond(){
+        cy.get('a[title="Terms and conditions of use"]').click();
+        cy.get('.rte').find('.page-heading').should('contain', 'Terms and conditions of use');
+    }
 
 }
 export default BottomMenu

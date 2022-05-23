@@ -192,3 +192,6 @@ When('I click on Our Store', ()=>{
 When('I click on Contact us page', ()=>{
     BottomMenu.contactUsBottom();
 })
+When('I click on Turms of service', ()=>{
+    BottomMenu.termsAndCond();
+})
